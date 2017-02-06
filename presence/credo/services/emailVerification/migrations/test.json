@@ -1,0 +1,11 @@
+{
+  "emailDb" : {
+    "host"               : "localhost",
+    "user"               : "root",
+    "password"           : "root",
+    "database"           : "test-credo-email-verification",
+    "driver"             : "mysql",
+    "multipleStatements" : true
+  }
+}
+

@@ -1,0 +1,10 @@
+{
+  "emailDb" : {
+    "host"               : {"ENV" : "EMAIL_DB_HOST"},
+    "user"               : {"ENV" : "EMAIL_DB_USER"},
+    "password"           : {"ENV" : "EMAIL_DB_PASSWORD"},
+    "database"           : {"ENV" : "EMAIL_DB_NAME"},
+    "driver"             : "mysql",
+    "multipleStatements" : true
+  }
+}

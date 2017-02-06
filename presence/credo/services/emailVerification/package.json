@@ -1,0 +1,51 @@
+{
+  "name": "EmailVerificationService",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Email verification microservice for Credo Mobile",
+  "repository": {
+    "url": "git+https://bitbucket.org/credomobile/emailverificationservice.git",
+    "type": "git"
+  },
+  "authors": [],
+  "contributors": [],
+  "dependencies": {
+    "alien-node-api-utils": "^0.x.x",
+    "alien-node-list-utils": "0.0.1",
+    "alien-node-q-utils": "^0.x.x",
+    "alien-node-winston-utils": "^0.x.x",
+    "credosdk": "git+https://bitbucket.org/credomobile/credosdk.git",
+    "config": "^1.24.0",
+    "dotenv-safe": "^4.0.3",
+    "express": "^4.14.0",
+    "node-fetch": "^1.6.3",
+    "prettycats": "^0.1.2",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.x",
+    "deep-diff": "^0.3.3",
+    "dupertest-patched": "*",
+    "eslint": "^3.14.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "gulp": "^3.8.x",
+    "gulp-nodemon": "*",
+    "gulp-shell": "*",
+    "http-proxy": "^1.16.2",
+    "istanbul": "^0.3.x",
+    "jasmine": "2.4.1",
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "test": "bash ./testrunner.sh",
+    "dev": "bash ./devrunner.sh",
+    "start": "node ./server/core/runSingle.js"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": ""
+  },
+  "homepage": ""
+}

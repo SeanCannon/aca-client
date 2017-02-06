@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B0FBE9F31CD1276A006C8554 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBE9F21CD1276A006C8554 /* AppDelegate.swift */; };
+		B0FBE9F51CD1276A006C8554 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBE9F41CD1276A006C8554 /* ViewController.swift */; };
+		B0FBE9F81CD1276A006C8554 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FBE9F61CD1276A006C8554 /* Main.storyboard */; };
+		B0FBE9FA1CD1276A006C8554 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0FBE9F91CD1276A006C8554 /* Assets.xcassets */; };
+		B0FBE9FD1CD1276A006C8554 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FBE9FB1CD1276A006C8554 /* LaunchScreen.storyboard */; };
+		B0FBEA081CD1276A006C8554 /* butterflysniperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBEA071CD1276A006C8554 /* butterflysniperTests.swift */; };
+		B0FBEA131CD1276A006C8554 /* butterflysniperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBEA121CD1276A006C8554 /* butterflysniperUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B0FBEA041CD1276A006C8554 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0FBE9E71CD1276A006C8554 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0FBE9EE1CD1276A006C8554;
+			remoteInfo = butterflysniper;
+		};
+		B0FBEA0F1CD1276A006C8554 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0FBE9E71CD1276A006C8554 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0FBE9EE1CD1276A006C8554;
+			remoteInfo = butterflysniper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B0FBE9EF1CD1276A006C8554 /* butterflysniper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = butterflysniper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0FBE9F21CD1276A006C8554 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B0FBE9F41CD1276A006C8554 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B0FBE9F71CD1276A006C8554 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B0FBE9F91CD1276A006C8554 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B0FBE9FC1CD1276A006C8554 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B0FBE9FE1CD1276A006C8554 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0FBEA031CD1276A006C8554 /* butterflysniperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = butterflysniperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0FBEA071CD1276A006C8554 /* butterflysniperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = butterflysniperTests.swift; sourceTree = "<group>"; };
+		B0FBEA091CD1276A006C8554 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0FBEA0E1CD1276A006C8554 /* butterflysniperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = butterflysniperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0FBEA121CD1276A006C8554 /* butterflysniperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = butterflysniperUITests.swift; sourceTree = "<group>"; };
+		B0FBEA141CD1276A006C8554 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B0FBE9EC1CD1276A006C8554 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0FBEA001CD1276A006C8554 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0FBEA0B1CD1276A006C8554 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B0FBE9E61CD1276A006C8554 = {
+			isa = PBXGroup;
+			children = (
+				B0FBE9F11CD1276A006C8554 /* butterflysniper */,
+				B0FBEA061CD1276A006C8554 /* butterflysniperTests */,
+				B0FBEA111CD1276A006C8554 /* butterflysniperUITests */,
+				B0FBE9F01CD1276A006C8554 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B0FBE9F01CD1276A006C8554 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B0FBE9EF1CD1276A006C8554 /* butterflysniper.app */,
+				B0FBEA031CD1276A006C8554 /* butterflysniperTests.xctest */,
+				B0FBEA0E1CD1276A006C8554 /* butterflysniperUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B0FBE9F11CD1276A006C8554 /* butterflysniper */ = {
+			isa = PBXGroup;
+			children = (
+				B0FBE9F21CD1276A006C8554 /* AppDelegate.swift */,
+				B0FBE9F41CD1276A006C8554 /* ViewController.swift */,
+				B0FBE9F61CD1276A006C8554 /* Main.storyboard */,
+				B0FBE9F91CD1276A006C8554 /* Assets.xcassets */,
+				B0FBE9FB1CD1276A006C8554 /* LaunchScreen.storyboard */,
+				B0FBE9FE1CD1276A006C8554 /* Info.plist */,
+			);
+			path = butterflysniper;
+			sourceTree = "<group>";
+		};
+		B0FBEA061CD1276A006C8554 /* butterflysniperTests */ = {
+			isa = PBXGroup;
+			children = (
+				B0FBEA071CD1276A006C8554 /* butterflysniperTests.swift */,
+				B0FBEA091CD1276A006C8554 /* Info.plist */,
+			);
+			path = butterflysniperTests;
+			sourceTree = "<group>";
+		};
+		B0FBEA111CD1276A006C8554 /* butterflysniperUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B0FBEA121CD1276A006C8554 /* butterflysniperUITests.swift */,
+				B0FBEA141CD1276A006C8554 /* Info.plist */,
+			);
+			path = butterflysniperUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B0FBE9EE1CD1276A006C8554 /* butterflysniper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0FBEA171CD1276A006C8554 /* Build configuration list for PBXNativeTarget "butterflysniper" */;
+			buildPhases = (
+				B0FBE9EB1CD1276A006C8554 /* Sources */,
+				B0FBE9EC1CD1276A006C8554 /* Frameworks */,
+				B0FBE9ED1CD1276A006C8554 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = butterflysniper;
+			productName = butterflysniper;
+			productReference = B0FBE9EF1CD1276A006C8554 /* butterflysniper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B0FBEA021CD1276A006C8554 /* butterflysniperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0FBEA1A1CD1276A006C8554 /* Build configuration list for PBXNativeTarget "butterflysniperTests" */;
+			buildPhases = (
+				B0FBE9FF1CD1276A006C8554 /* Sources */,
+				B0FBEA001CD1276A006C8554 /* Frameworks */,
+				B0FBEA011CD1276A006C8554 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B0FBEA051CD1276A006C8554 /* PBXTargetDependency */,
+			);
+			name = butterflysniperTests;
+			productName = butterflysniperTests;
+			productReference = B0FBEA031CD1276A006C8554 /* butterflysniperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B0FBEA0D1CD1276A006C8554 /* butterflysniperUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0FBEA1D1CD1276A006C8554 /* Build configuration list for PBXNativeTarget "butterflysniperUITests" */;
+			buildPhases = (
+				B0FBEA0A1CD1276A006C8554 /* Sources */,
+				B0FBEA0B1CD1276A006C8554 /* Frameworks */,
+				B0FBEA0C1CD1276A006C8554 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B0FBEA101CD1276A006C8554 /* PBXTargetDependency */,
+			);
+			name = butterflysniperUITests;
+			productName = butterflysniperUITests;
+			productReference = B0FBEA0E1CD1276A006C8554 /* butterflysniperUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B0FBE9E71CD1276A006C8554 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Sean Cannon";
+				TargetAttributes = {
+					B0FBE9EE1CD1276A006C8554 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					B0FBEA021CD1276A006C8554 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = B0FBE9EE1CD1276A006C8554;
+					};
+					B0FBEA0D1CD1276A006C8554 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = B0FBE9EE1CD1276A006C8554;
+					};
+				};
+			};
+			buildConfigurationList = B0FBE9EA1CD1276A006C8554 /* Build configuration list for PBXProject "butterflysniper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B0FBE9E61CD1276A006C8554;
+			productRefGroup = B0FBE9F01CD1276A006C8554 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B0FBE9EE1CD1276A006C8554 /* butterflysniper */,
+				B0FBEA021CD1276A006C8554 /* butterflysniperTests */,
+				B0FBEA0D1CD1276A006C8554 /* butterflysniperUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B0FBE9ED1CD1276A006C8554 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0FBE9FD1CD1276A006C8554 /* LaunchScreen.storyboard in Resources */,
+				B0FBE9FA1CD1276A006C8554 /* Assets.xcassets in Resources */,
+				B0FBE9F81CD1276A006C8554 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0FBEA011CD1276A006C8554 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0FBEA0C1CD1276A006C8554 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B0FBE9EB1CD1276A006C8554 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0FBE9F51CD1276A006C8554 /* ViewController.swift in Sources */,
+				B0FBE9F31CD1276A006C8554 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0FBE9FF1CD1276A006C8554 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0FBEA081CD1276A006C8554 /* butterflysniperTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0FBEA0A1CD1276A006C8554 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0FBEA131CD1276A006C8554 /* butterflysniperUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B0FBEA051CD1276A006C8554 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0FBE9EE1CD1276A006C8554 /* butterflysniper */;
+			targetProxy = B0FBEA041CD1276A006C8554 /* PBXContainerItemProxy */;
+		};
+		B0FBEA101CD1276A006C8554 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0FBE9EE1CD1276A006C8554 /* butterflysniper */;
+			targetProxy = B0FBEA0F1CD1276A006C8554 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B0FBE9F61CD1276A006C8554 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B0FBE9F71CD1276A006C8554 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B0FBE9FB1CD1276A006C8554 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B0FBE9FC1CD1276A006C8554 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B0FBEA151CD1276A006C8554 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B0FBEA161CD1276A006C8554 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B0FBEA181CD1276A006C8554 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = butterflysniper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.taplogik.butterflysniper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B0FBEA191CD1276A006C8554 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = butterflysniper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.taplogik.butterflysniper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B0FBEA1B1CD1276A006C8554 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = butterflysniperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.taplogik.butterflysniperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/butterflysniper.app/butterflysniper";
+			};
+			name = Debug;
+		};
+		B0FBEA1C1CD1276A006C8554 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = butterflysniperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.taplogik.butterflysniperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/butterflysniper.app/butterflysniper";
+			};
+			name = Release;
+		};
+		B0FBEA1E1CD1276A006C8554 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = butterflysniperUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.taplogik.butterflysniperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = butterflysniper;
+			};
+			name = Debug;
+		};
+		B0FBEA1F1CD1276A006C8554 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = butterflysniperUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.taplogik.butterflysniperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = butterflysniper;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B0FBE9EA1CD1276A006C8554 /* Build configuration list for PBXProject "butterflysniper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0FBEA151CD1276A006C8554 /* Debug */,
+				B0FBEA161CD1276A006C8554 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0FBEA171CD1276A006C8554 /* Build configuration list for PBXNativeTarget "butterflysniper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0FBEA181CD1276A006C8554 /* Debug */,
+				B0FBEA191CD1276A006C8554 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B0FBEA1A1CD1276A006C8554 /* Build configuration list for PBXNativeTarget "butterflysniperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0FBEA1B1CD1276A006C8554 /* Debug */,
+				B0FBEA1C1CD1276A006C8554 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B0FBEA1D1CD1276A006C8554 /* Build configuration list for PBXNativeTarget "butterflysniperUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0FBEA1E1CD1276A006C8554 /* Debug */,
+				B0FBEA1F1CD1276A006C8554 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B0FBE9E71CD1276A006C8554 /* Project object */;
+}

@@ -1,0 +1,5 @@
+SET FOREIGN_KEY_CHECKS = 0;
+
+DROP TABLE IF EXISTS `__DB_PREFIX__credo-email-verification`.`emails`;
+
+SET FOREIGN_KEY_CHECKS = 1;

@@ -1,0 +1,11 @@
+.DS_Store
+.idea
+.vscode
+.env
+*.log
+yarn.lock
+node_modules
+coverage
+dist
+spec/support/logs/*
+dump.rdb
