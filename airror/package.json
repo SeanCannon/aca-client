@@ -1,0 +1,11 @@
+{
+  "name": "airror",
+  "version": "6.2.581",
+  "description": "Because JavaScript Errors should take more params. There are no tests.",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "author": "sean cannon",
+  "license": "MIT"
+}
