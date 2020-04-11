@@ -1,0 +1,63 @@
+.RBACDashboard .RBACDashboard-column {
+  overflow-y: scroll;
+}
+.RBACDashboard .RBACDashboard-drop-target {
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+.RBACDashboard .RBACDashboard-collapsible-select-list {
+  transition: height .3s ease;
+}
+.RBACDashboard .RBACDashboard-collapsible-select-list.collapsed {
+  height: 0 !important;
+  overflow: hidden;
+}
+.RBACDashboard .RBACDashboard-toggle-title {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #EEE;
+  padding: 10px;
+}
+.RBACDashboard .RBACDashboard-toggle-title:after {
+  content: '+/-';
+  font-size: 0.7em;
+  cursor: pointer;
+  float: right;
+}
+.RBACDashboard .RBACDashboard-create-role-button {
+  margin-bottom: 20px;
+}
+.RBACDashboard .form-control {
+  color: #333;
+  background-color: #F6F6F6;
+}
+.RBACDashboard .form-control:disabled {
+  background-color: transparent;
+  color: #BBB;
+  border: none;
+  box-shadow: none;
+}
+.RBACDashboard .input-group-addon {
+  background-color: transparent;
+  border-color: #CCC;
+  color: #DEDEDE;
+}
+.RBACDashboard input[type=radio] {
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  border: 1px solid #CCC;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 8px;
+  margin-left: -21px;
+  margin-top: 2px;
+}
+.RBACDashboard input[type=radio]:active {
+  outline: none;
+}
+.RBACDashboard input[type=radio]:checked {
+  background: #84c35f;
+}

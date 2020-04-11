@@ -1,0 +1,101 @@
+.TenantMemberProfileCard {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  position: absolute;
+  overflow-y: scroll;
+  z-index: 2;
+  left: 10px;
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+  color: #333;
+  padding: 40px;
+}
+.TenantMemberProfileCard .form-control {
+  color: #333;
+  background-color: #F6F6F6;
+}
+.TenantMemberProfileCard .form-control:disabled {
+  background-color: transparent;
+  color: #BBB;
+  border: none;
+  box-shadow: none;
+}
+.TenantMemberProfileCard .input-group-addon {
+  background-color: transparent;
+  color: #DEDEDE;
+}
+.TenantMemberProfileCard input[type=radio] {
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  border: 1px solid #CCC;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 8px;
+  margin-left: -21px;
+  margin-top: 2px;
+}
+.TenantMemberProfileCard input[type=radio]:active {
+  outline: none;
+}
+.TenantMemberProfileCard input[type=radio]:checked {
+  background: #84c35f;
+}
+.TenantMemberProfileCard .TenantMemberProfileCard-portrait {
+  width: 180px;
+  height: 180px;
+  border-radius: 125px;
+  margin: 10px;
+  display: inline-block;
+}
+.TenantMemberProfileCard .TenantMemberProfileCard-points-label {
+  text-decoration: underline;
+  line-height: 1.3em;
+  font-size: 1.3em;
+}
+.TenantMemberProfileCard .TenantMemberProfileCard-points-value {
+  font-size: 2em;
+}
+.TenantMemberProfileCard .TenantMemberProfileCard-view-activity-button {
+  background-color: #84c35f;
+  font-size: 0.8em;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 10px;
+  margin: 60px 0 20px 0;
+  color: #FFF;
+  display: block;
+}
+.TenantMemberProfileCard .TenantMemberProfileCard-static-value {
+  font-size: 1.3em;
+  display: block;
+  padding-left: 15px;
+  margin: 5px;
+}
+.TenantMemberProfileCard .public_fixedDataTable_header,
+.TenantMemberProfileCard .public_fixedDataTable_header .public_fixedDataTableCell_main {
+  background-color: #333;
+  color: #EEE;
+}
+.TenantMemberProfileCard .public_fixedDataTableCell_main {
+  background: none;
+  border: none;
+}
+.TenantMemberProfileCard .public_fixedDataTableRow_main {
+  border: none;
+}
+.TenantMemberProfileCard .public_fixedDataTable_main {
+  border: none;
+}
+.TenantMemberProfileCard .public_fixedDataTableRow_highlighted,
+.TenantMemberProfileCard .public_fixedDataTableRow_highlighted .public_fixedDataTableCell_main {
+  background-color: transparent;
+}
+.TenantMemberProfileCard .public_fixedDataTableRow_even,
+.TenantMemberProfileCard .public_fixedDataTableRow_even .public_fixedDataTableCell_main {
+  background-color: rgba(0, 0, 0, 0.01);
+}

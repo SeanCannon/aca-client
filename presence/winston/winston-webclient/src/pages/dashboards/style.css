@@ -1,0 +1,31 @@
+.Dashboard {
+  position   : absolute;
+  top        : 0;
+  right      : 0;
+  bottom     : 0;
+  left       : 0;
+  overflow-y : scroll;
+}
+
+.Dashboard > .container {
+  margin  : 0;
+  padding : 0;
+  height  : calc(100%);
+  width   : calc(100% - 15px);
+}
+
+.Dashboard > .container > .row {
+  height : calc(100%);
+}
+
+.Dashboard-sidenav-column {
+  padding-right    : 0 !important;
+  height           : calc(100%);
+  background-color : rgba(255, 255, 255, 0.8);
+}
+
+.Dashboard-content-column {
+  height           : calc(100%);
+  background-color : rgba(255, 255, 255, 0.6);
+}
+

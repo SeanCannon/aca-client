@@ -1,0 +1,92 @@
+.TenantMemberEnrollmentForm .form-control {
+  color: #333;
+  border-color: #666;
+}
+.TenantMemberEnrollmentForm .form-group.has-error .control-label,
+.TenantMemberEnrollmentForm .form-group.has-success .control-label {
+  color: #333;
+}
+.TenantMemberEnrollmentForm .form-group.hidden {
+  display: none;
+}
+.TenantMemberEnrollmentForm .form-group.has-success label.control-label:after {
+  content: '✓';
+  margin-left: 10px;
+}
+.TenantMemberEnrollmentForm button {
+  width: 100%;
+  margin-top: 30px;
+}
+.TenantMemberEnrollmentForm button.standard {
+  width: 120px;
+  margin-bottom: 20px;
+}
+.TenantMemberEnrollmentForm button.standard.pull-right {
+  margin-top: 0;
+}
+.TenantMemberEnrollmentForm button.submit {
+  width: 180px;
+}
+.TenantMemberEnrollmentForm #camera {
+  display: inline-block;
+  margin: 0.5em;
+  background-color: #eee;
+  width: 100%;
+  border: 1px solid #666;
+  border-radius: 10px;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0.2;
+}
+.TenantMemberEnrollmentForm #camera:before {
+  display: block;
+  position: relative;
+  z-index: 20;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 5px 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  float: left;
+  content: 'Camera';
+}
+.TenantMemberEnrollmentForm #camera .placeholder {
+  padding: 0.5em;
+}
+.TenantMemberEnrollmentForm #portrait-preview {
+  background-color: #eee;
+  width: 100%;
+  border: 1px solid #666;
+  border-radius: 10px;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0.2;
+  margin: 0.5em 0;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.TenantMemberEnrollmentForm #portrait-preview:before {
+  display: block;
+  position: relative;
+  z-index: 20;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 5px 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  float: right;
+  content: 'Preview';
+}
+.TenantMemberEnrollmentForm #portrait-preview canvas,
+.TenantMemberEnrollmentForm #portrait-preview img {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  height: 100%;
+}
+.TenantMemberEnrollmentForm #portrait-preview .selected {
+  border: 3px solid #000;
+}

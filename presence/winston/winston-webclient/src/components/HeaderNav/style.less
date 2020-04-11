@@ -1,0 +1,90 @@
+.HeaderNav {
+
+  .navbar {
+    background-color : rgba(255, 255, 255, 0.7);
+    height           : 50px;
+    border-radius    : 0;
+    border           : 0;
+  }
+
+  .navbar-brand {
+    padding     : 0;
+    margin-left : 10px;
+  }
+
+  .navbar-inverse .navbar-nav > li {
+
+    &.active {
+      a {
+        background-color : transparent;
+      }
+    }
+
+    a {
+      padding     : 0 10px;
+      cursor      : pointer;
+      line-height : 2.5em;
+      color       : rgba(0, 0, 0, 0.8);
+
+      &:hover {
+        text-decoration  : none;
+        color            : rgba(0, 0, 0, 1);
+        background-color : rgba(0, 0, 0, 0.05);
+      }
+
+      &:visited, &:active {
+        color            : rgba(0, 0, 0, 0.8);
+        background-color : transparent !important;
+      }
+    }
+
+  }
+
+  .HeaderNav-logo {
+    height  : 49px;
+    padding : 5px 0;
+  }
+
+  ul {
+    display  : inline-block;
+    padding  : 0;
+    overflow : hidden;
+    float    : right;
+
+    li {
+      display : inline-block;
+      padding : 0 10px;
+      height  : 50px;
+    }
+  }
+
+  .HeaderNav-nested-link {
+    font-family     : 'GeosansLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size       : 1.4em;
+    font-weight     : 100;
+    color           : #333;
+    text-decoration : none;
+    text-transform  : uppercase;
+    line-height     : 2.6em;
+    cursor          : pointer;
+  }
+
+  .HeaderNav-request-demo {
+    background-color : rgba(0, 0, 0, 0.9);
+    color            : #EEE;
+    border           : 0;
+    text-transform   : uppercase;
+    font-weight      : 400;
+    font-size        : 0.8em;
+    margin-top       : 8px;
+    box-shadow       : 2px 2px 3px rgba(68, 68, 68, 0.3);
+    text-shadow      : 1px 1px rgba(68, 68, 68, 0.6);
+    float            : right;
+
+    &:hover, &:active, &:focus {
+      background-color : #646DB5 !important;
+      color            : #FFF !important;
+      outline          : none !important;
+    }
+  }
+}

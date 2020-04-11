@@ -1,0 +1,28 @@
+doctype html
+html(lang="en")
+  head
+    style
+      | .health-report { font-family : Helvetica, sans-serif; }
+      | .header { background-color : #DEDEDE; padding : 10px; border : 1px solid #666; }
+      | td { padding : 10px; border : 1px solid #CCC; color : #333; }
+      | td.status { color : #FFF; }
+      | td.status.fail { background-color : #F00;  }
+      | td.status.ok { background-color : #0F0; }
+  body
+    table.health-report
+      tr.header
+        td Service
+        td Status
+        td Error
+      each report in reports
+        tr
+          td #{report.service}
+
+          if report.err
+            td.status.fail FAIL:
+            td #{report.err}
+          else
+            td.status.ok OK
+            td
+
+

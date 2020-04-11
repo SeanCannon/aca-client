@@ -1,0 +1,11 @@
+{
+  "coreDb" : {
+    "host"               : {"ENV" : "CORE_DB_HOST"},
+    "user"               : {"ENV" : "CORE_DB_USER"},
+    "password"           : {"ENV" : "CORE_DB_PASSWORD"},
+    "database"           : {"ENV" : "CORE_DB_NAME"},
+    "port"               : {"ENV" : "CORE_DB_PORT"},
+    "driver"             : "mysql",
+    "multipleStatements" : true
+  }
+}

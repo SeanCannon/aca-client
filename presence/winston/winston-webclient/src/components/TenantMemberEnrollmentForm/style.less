@@ -1,0 +1,111 @@
+.cameraPreview() {
+  background-color : #eee;
+  width            : 100%;
+  border           : 1px solid #666;
+  border-radius    : 10px;
+  padding          : 0;
+  overflow         : hidden;
+  opacity          : 0.2;
+}
+
+.cameraLabel() {
+  display          : block;
+  position         : relative;
+  z-index          : 20;
+  background-color : rgba(255, 255, 255, 0.4);
+  padding          : 5px 10px;
+  font-size        : 1.2em;
+  font-weight      : bold;
+  text-transform   : uppercase;
+}
+
+.TenantMemberEnrollmentForm {
+
+  .form-control {
+    color        : #333;
+    border-color : #666;
+  }
+
+  .form-group {
+    &.has-error, &.has-success {
+      .control-label {
+        color : #333;
+      }
+    }
+
+    &.hidden {
+      display : none;
+    }
+
+    &.has-success {
+      label.control-label {
+        &:after {
+          content     : '✓';
+          margin-left : 10px;
+        }
+      }
+    }
+  }
+
+  button {
+    width      : 100%;
+    margin-top : 30px;
+
+    &.standard {
+      width         : 120px;
+      margin-bottom : 20px;
+
+      &.pull-right {
+        margin-top : 0;
+      }
+    }
+
+    &.submit {
+      width : 180px;
+    }
+  }
+
+  #camera {
+    display : inline-block;
+    margin  : 0.5em;
+    .cameraPreview();
+
+    &:before {
+      .cameraLabel();
+      float   : left;
+      content : 'Camera';
+    }
+  }
+
+  #camera .placeholder {
+    padding : 0.5em;
+  }
+
+  #portrait-preview {
+    .cameraPreview();
+    margin      : 0.5em 0;
+    white-space : nowrap;
+    overflow-x  : auto;
+    overflow-y  : hidden;
+
+    &:before {
+      .cameraLabel();
+      float   : right;
+      content : 'Preview';
+    }
+  }
+
+  #portrait-preview canvas, #portrait-preview img {
+    box-sizing         : border-box;
+    -webkit-box-sizing : border-box;
+    -moz-box-sizing    : border-box;
+    -ms-box-sizing     : border-box;
+    -o-box-sizing      : border-box;
+    height             : 100%;
+  }
+
+  #portrait-preview .selected {
+    border : 3px solid #000;
+  }
+
+}

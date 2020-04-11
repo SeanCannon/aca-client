@@ -1,0 +1,57 @@
+.SideNav {
+  font-family: 'GeosansLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-align: center;
+  color: #333;
+  padding: 0;
+  z-index: 2;
+  box-shadow: rgba(0, 0, 0, 0.9) 2px 0 20px;
+  min-height: 100%;
+}
+.SideNav .SideNav-logo {
+  height: 50px;
+  padding: 5px 0 10px 0;
+  margin: 10px;
+}
+.SideNav .SideNav-user-portrait {
+  display: block;
+  width: 80%;
+  height: auto;
+  margin: auto;
+  border: 1px solid #333;
+  border-radius: 300px;
+}
+.SideNav .SideNav-profile {
+  padding: 0 5px 5px;
+  margin: 0 0 20px;
+  background-color: transparent;
+}
+.SideNav h3 {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #EEE;
+  font-size: 1.2em;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 15px;
+  margin: 0;
+}
+.SideNav li a {
+  display: block;
+  color: #333;
+  font-size: 1em;
+  font-weight: 100;
+  text-decoration: none;
+  line-height: 2.6em;
+  cursor: pointer;
+  border-bottom: 1px solid #CCC;
+}
+.SideNav li a:hover,
+.SideNav li a:focus,
+.SideNav li a:active {
+  text-decoration: none;
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.3) !important;
+}
+.SideNav li.active {
+  background-color: rgba(102, 154, 69, 0.3) !important;
+}

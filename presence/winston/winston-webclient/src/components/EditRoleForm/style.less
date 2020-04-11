@@ -1,0 +1,41 @@
+.EditRoleForm {
+
+  .form-control {
+    color            : #DEDEDE;
+    border-color     : #666;
+    background-color : #333;
+
+    &:disabled {
+      background-color : #000;
+      color            : #555;
+    }
+  }
+
+  .input-group-addon {
+    background-color : transparent;
+    border-color     : #666;
+    color            : #dedede;
+  }
+
+  input[type=radio] {
+    cursor             : pointer;
+    background         : transparent;
+    outline            : none;
+    border             : 1px solid #666;
+    -webkit-appearance : none;
+    -moz-appearance    : none;
+    height             : 16px;
+    width              : 16px;
+    border-radius      : 8px;
+    margin-left        : -21px;
+    margin-top         : 2px;
+
+    &:active {
+      outline : none;
+    }
+
+    &:checked {
+      background : rgba(132, 195, 95, 1);
+    }
+  }
+}

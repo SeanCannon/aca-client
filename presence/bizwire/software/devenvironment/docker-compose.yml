@@ -1,0 +1,51 @@
+version: '2.1'
+
+services :
+
+  #############################################################################
+  # SMTP
+  smtp :
+    image          : djfarrelly/maildev
+    hostname       : bw-auth-smtp
+    container_name : bw_auth_smtp
+    mem_limit      : 256m
+    ports          :
+      - "${SMTP_SERVER_PORT}:80"
+      - "${SMTP_MAIL_PORT}:25"
+
+  #############################################################################
+  # MySQL
+  database :
+    image          : seancannon/dev_mysql
+    hostname       : bw-auth-mysql
+    container_name : bw_auth_mysql
+    mem_limit      : 512m
+    environment    :
+      - "MYSQL_ROOT_PASSWORD=${CORE_DB_ROOT_PASSWORD}"
+      - "TZ=${CORE_DB_TIMEZONE}"
+    volumes        :
+      - "${MYSQL_VOLUME_MOUNT}"
+    tmpfs          :
+      - "${MYSQL_TMPFS}"
+    ports          :
+      - "${CORE_DB_PORT}:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "-u", "root", "--password=${CORE_DB_ROOT_PASSWORD}"]
+      timeout: 20s
+      retries: 10
+
+  #############################################################################
+  # PHPMyAdmin
+  dbgui :
+    image          : phpmyadmin/phpmyadmin
+    container_name : bw_auth_phpmyadmin
+    mem_limit      : 256m
+    environment    :
+      - "MYSQL_USERNAME=${CORE_DB_USER}"
+      - "MYSQL_ROOT_PASSWORD=${CORE_DB_ROOT_PASSWORD}"
+    links          :
+      - database:db
+    ports          :
+      - "${PHPMYADMIN_PORT}:80"
+    volumes:
+      - "./tmp/env/${NODE_ENV}/phpmyadmin/sessions:/sessions"

@@ -1,0 +1,8 @@
+.Login .Login-form-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(0, 0, 0, 0.4);
+  margin: 100px 20%;
+  padding: 20px 80px 60px 80px;
+  border-radius: 20px;
+  color: #333;
+}

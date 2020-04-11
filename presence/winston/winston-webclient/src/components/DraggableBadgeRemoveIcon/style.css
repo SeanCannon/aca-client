@@ -1,0 +1,28 @@
+.DraggableBadgeRemoveIcon {
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  right: -6px;
+  top: -6px;
+  border-radius: 11px;
+  background-color: #CCC;
+  border: 1px solid #AAA;
+  font-size: 0.8em;
+  font-weight: 900;
+  text-align: center;
+  line-height: 24px;
+  transition: all .3s ease;
+}
+.DraggableBadgeRemoveIcon:hover {
+  background-color: indianred;
+  color: #FFF;
+  cursor: pointer;
+  height: 28px;
+  width: 28px;
+  top: -7px;
+  right: -7px;
+  border-radius: 14px;
+  border-color: transparent;
+  line-height: 28px;
+  font-size: 1.1em;
+}

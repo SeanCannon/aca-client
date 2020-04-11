@@ -1,0 +1,15 @@
+.TenantAccessRoleSection {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.TenantAccessRoleSection h3 {
+  font-weight: 800;
+  margin: 0;
+}
+.TenantAccessRoleSection .DraggableUserBadge,
+.TenantAccessRoleSection .DraggableResourceBadge {
+  display: inline-block;
+  margin-right: 10px;
+}

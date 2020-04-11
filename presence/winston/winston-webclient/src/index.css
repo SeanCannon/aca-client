@@ -1,0 +1,219 @@
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/fixed-data-table/dist/fixed-data-table.css';
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+
+@font-face {
+  font-family : 'lato-lighter';
+  src         : url('./fonts/Lato-Hairline.ttf');
+  font-weight : normal;
+  font-style  : normal;
+}
+
+@font-face {
+  font-family : 'lato-light';
+  src         : url('./fonts/Lato-Light.ttf');
+  font-weight : normal;
+  font-style  : normal;
+}
+
+@font-face {
+  font-family : 'lato-regular';
+  src         : url('./fonts/Lato-Regular.ttf');
+  font-weight : normal;
+  font-style  : normal;
+}
+
+@font-face {
+  font-family : 'lato-italic';
+  src         : url('./fonts/Lato-Italic.ttf');
+  font-weight : normal;
+  font-style  : normal;
+}
+
+@font-face {
+  font-family : 'lato-bold';
+  src         : url('./fonts/Lato-Bold.ttf');
+}
+
+@font-face {
+  font-family : 'lato-bolder';
+  src         : url('./fonts/Lato-Black.ttf');
+  font-weight : bolder;
+  font-style  : normal;
+}
+
+.font-sml-01 {
+  font           : 11px/14px 'lato-bold';
+  text-transform : uppercase;
+}
+
+.font-sml-02 {
+  font : 13px/16px 'lato-regular';
+}
+
+.font-sml-02-italic {
+  font : 13px/16px 'lato-italic';
+}
+
+.font-sml-03 {
+  font           : 13px/16px 'lato-bold';
+  text-transform : uppercase;
+}
+
+.font-med-01 {
+  font : 15px/18px 'lato-regular';
+}
+
+.font-med-02 {
+  font           : 15px/18px 'lato-bold';
+  text-transform : uppercase;
+}
+
+.font-med-03 {
+  font : 16px/20px 'lato-regular';
+}
+
+.font-med-04 {
+  font : 17px/24px 'lato-bold';
+}
+
+.font-med-05-title {
+  font : 18px/24px 'lato-regular';
+}
+
+.font-med-05-body {
+  font : 18px/28px 'lato-regular';
+}
+
+.font-med-06 {
+  font : 18px/24px 'lato-bolder';
+}
+
+.font-med-07 {
+  font : 20px/28px 'lato-regular';
+}
+
+.font-lrg-01 {
+  font : 24px/30px 'lato-regular';
+}
+
+.font-lrg-02 {
+  font : 24px/30px 'lato-bolder';
+}
+
+.font-lrg-03 {
+  font : 30px/36px 'lato-light';
+}
+
+.font-lrg-04 {
+  font : 30px/36px 'lato-bold';
+}
+
+.font-lrg-05 {
+  font : 36px/48px 'lato-light';
+}
+
+.font-lrg-06 {
+  font : 48px/60px 'lato-light';
+}
+
+.font-lrg-07 {
+  font : 48px/60px 'lato-bold';
+}
+
+.font-xlrg-01 {
+  font : 60px/72px 'lato-light';
+}
+
+.font-xlrg-02 {
+  font : 66px/78px 'lato-light';
+}
+
+html, body, #root, [data-reactroot] {
+  width  : 100%;
+  height : 100%;
+}
+
+
+body {
+  margin          : 0;
+  padding         : 0;
+  font-family     : 'GeosansLight', 'Helvetica Neue', 'Helvetica', sans-serif;
+  background-image: linear-gradient(0deg, white, white), url('./images/morning-studio.jpg');
+  background-color: white;
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+  background-blend-mode: multiply, luminosity;
+  background-size : cover;
+}
+.public_fixedDataTable_header,
+.public_fixedDataTable_header .public_fixedDataTableCell_main {
+  background     : #333;
+  font-size      : 0.9em;
+  font-weight    : 800;
+  text-transform : uppercase;
+  letter-spacing : 0.15em;
+  color          : #FFF;
+}
+
+.public_fixedDataTableRow_main {
+  border-bottom : 1px solid #DEDEDE;
+}
+
+.public_fixedDataTableRow_highlighted,
+.public_fixedDataTableRow_highlighted .public_fixedDataTableCell_main {
+  background-color : rgba(255, 255, 255, 0.5);
+}
+
+.public_fixedDataTableRow_even,
+.public_fixedDataTableRow_even .public_fixedDataTableCell_main {
+  background-color : rgba(255, 255, 255, 0.3);
+}
+
+a {
+  cursor : pointer;
+}
+
+.input-group-addon, button.close {
+  font-family : 'Helvetica Neue', 'Helvetica', 'sans-serif';
+}
+
+.nav-tabs > li > a {
+  font-size        : 1.2em;
+  font-weight      : 800;
+  text-transform   : uppercase;
+  background-color : rgba(255, 255, 255, 0.6);
+  color            : #333;
+}
+
+.nav-tabs > li > a:hover {
+  background-color : rgba(255, 255, 255, 0.8);
+  border-color     : rgba(255, 255, 255, 0.6);
+}
+
+.popover-content {
+  background-color : rgba(255, 255, 255, 0.8);
+}
+
+.date-picker-popover {
+  height : 265px;
+  width  : 250px;
+}
+
+.date-picker-popover td.text-muted {
+  color : #DDD;
+}
+
+.date-picker-popover td.text-muted small{
+  color : #333;
+}
+
+.heatmap-canvas {
+  opacity : 0.6;
+}
+
+@media (min-width: 1170px) {
+  .container {
+    width : 97%;
+  }
+}

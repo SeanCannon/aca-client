@@ -1,0 +1,60 @@
+.FooterNav {
+  background-color : rgba(0, 0, 0, 0.7);
+  font-size        : 0.7em;
+  font-family      : 'GeosansLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color            : #FFF;
+  padding          : 20px 40px;
+
+  .col-height {
+    text-align : center;
+    font-size  : 1.2em;
+
+    @media (min-width: 780px) {
+      float        : none;
+      border-right : 1px solid rgba(255, 255, 255, 0.6);
+      height       : 100%;
+      display      : table-cell;
+      text-align   : left;
+    }
+
+    &:last-child {
+      border-right : none;
+    }
+  }
+
+  .row-height {
+    @media (min-width: 780px) {
+      display      : table;
+      table-layout : fixed;
+      height       : 100%;
+      width        : 100%;
+    }
+  }
+
+  h3.FooterNav-column-title {
+    font-size      : 1.2em;
+    font-weight    : 800;
+    text-transform : uppercase;
+    letter-spacing : 0.15em;
+  }
+
+  a {
+    display         : block;
+    color           : #FFF;
+    font-size       : 1em;
+    font-weight     : 100;
+    text-decoration : none;
+    line-height     : 2.6em;
+    cursor          : pointer;
+
+    &:visited {
+      color : #FFF;
+    }
+
+    &:hover {
+      text-decoration : none;
+      color           : #84c35f;
+    }
+
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "settings"      : {
+    "react"                : {
+      "createClass" : "createReactClass",
+      "pragma"      : "React",
+      "version"     : "16",
+      "flowVersion" : "0.53"
+    },
+    "propWrapperFunctions" : [
+      "forbidExtraProps"
+    ]
+  },
+  "rules"         : {
+    "no-useless-escape"                   : "off",
+    "semi"                                : "error",
+    "ramda/always-simplification"         : "error",
+    "ramda/any-pass-simplification"       : "error",
+    "ramda/both-simplification"           : "error",
+    "ramda/complement-simplification"     : "error",
+    "ramda/compose-pipe-style"            : "off",
+    "ramda/compose-simplification"        : "error",
+    "ramda/cond-simplification"           : "error",
+    "ramda/either-simplification"         : "error",
+    "ramda/eq-by-simplification"          : "error",
+    "ramda/filter-simplification"         : "error",
+    "ramda/if-else-simplification"        : "error",
+    "ramda/map-simplification"            : "error",
+    "ramda/merge-simplification"          : "error",
+    "ramda/no-redundant-and"              : "error",
+    "ramda/no-redundant-not"              : "error",
+    "ramda/no-redundant-or"               : "error",
+    "ramda/pipe-simplification"           : "error",
+    "ramda/prefer-both-either"            : "error",
+    "ramda/prefer-complement"             : "error",
+    "ramda/prefer-ramda-boolean"          : "error",
+    "ramda/prop-satisfies-simplification" : "error",
+    "ramda/reduce-simplification"         : "error",
+    "ramda/reject-simplification"         : "error",
+    "ramda/set-simplification"            : "error",
+    "ramda/unless-simplification"         : "error",
+    "ramda/when-simplification"           : "error",
+    "react/prop-types"                    : "off"
+  },
+  "plugins"       : [
+    "ramda"
+  ],
+
+  "env"           : {
+    "es6"     : true,
+    "browser" : false,
+    "jasmine" : true
+  },
+  "parserOptions" : {
+    "ecmaVersion"  : 2017,
+    "sourceType"   : "module",
+    "ecmaFeatures" : {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "globals"       : {
+    "process"    : true,
+    "global"     : true,
+    "jasmine"    : true,
+    "describe"   : true,
+    "it"         : true,
+    "test"       : true,
+    "afterEach"  : true,
+    "expect"     : true,
+    "module"     : true,
+    "require"    : true,
+    "__dirname"  : true,
+    "setTimeout" : true,
+    "console"    : true,
+    "exports"    : true,
+    "Buffer"     : true
+  },
+  "extends"       : [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ]
+}

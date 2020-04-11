@@ -1,0 +1,29 @@
+.LoginForm {
+
+  .form-control {
+    color        : #333;
+    border-color : #666;
+  }
+
+  .form-group {
+    &.has-error, &.has-success {
+      .control-label {
+        color : #333;
+      }
+    }
+
+    &.has-success {
+      label {
+        &:after {
+          content     : '✓';
+          margin-left : 10px;
+        }
+      }
+    }
+  }
+
+  button {
+    width : 100%;
+  }
+
+}

@@ -1,0 +1,14 @@
+.DS_Store
+.idea
+/.env
+_assets
+bower_components
+node_modules
+coverage
+dist
+spec/support/logs/*
+dump.rdb
+tmp
+ssl.*
+yarn-error.log
+.nyc_output

@@ -1,0 +1,16 @@
+# testing
+/public
+/scripts
+/src/*test.js
+/src/*test.jsx
+/config
+
+# These are ES5 modules (require, etc.)
+/spec/**/*.js
+
+# eslint issue #12155: no-extraneous-dependencies
+/src/setupTests.js
+node_modules
+tmp
+coverage
+.nyc_output
