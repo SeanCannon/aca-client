@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-  Button,
   Container,
   Header,
-  Segment
+  Segment,
+  Pagination
 } from 'semantic-ui-react'
 
 const Gallery = () => {
@@ -13,12 +13,14 @@ const Gallery = () => {
         <Header as='h3' style={{ fontSize: '2em' }}>
           Gallery
         </Header>
-        <p style={{ fontSize: '1.33em' }}>
-          Choose from
-        </p>
-        <Button as='a' size='large'>
-          Read More
-        </Button>
+        <Pagination 
+          defaultActivePage={1}
+          firstItem={null}
+          lastItem={null}
+          pointing
+          secondary
+          totalPages={3}
+        />
       </Container>
     </Segment>
   );
