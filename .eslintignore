@@ -10,6 +10,7 @@
 
 # eslint issue #12155: no-extraneous-dependencies
 /src/setupTests.js
+/src/serviceWorker.js
 node_modules
 tmp
 coverage

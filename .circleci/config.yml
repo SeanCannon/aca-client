@@ -1,0 +1,112 @@
+version: 2
+jobs:
+  feature_branch:
+    machine:
+      image: circleci/classic:latest
+    steps:
+      - checkout
+      - run:
+          name: Install node@10
+          command: |
+            set +e
+            curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+
+            export NVM_DIR="/opt/circleci/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+            nvm install 10.15.2
+            nvm alias default 10.15.2
+
+            rm -rf ~./node-gyp
+      - run:
+          name: Install yarn and rsync
+          command: |
+            curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+            echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+            sudo apt-get update && sudo apt-get install yarn rsync
+      - run:
+          name: Lint and Build Client
+          command: |
+            export NVM_DIR="/opt/circleci/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+            nvm use 10.15.2
+
+            export REACT_APP_API_ROOT=https://api.animalcrossingart.com &&
+            yarn install && yarn lint && yarn build
+
+
+  # Dev is acting as production now. Low-risk beta.
+  dev:
+    machine:
+      image: circleci/classic:latest
+    steps:
+    - checkout
+    - run:
+        name: Install node@10
+        command: |
+          set +e
+          curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+
+          export NVM_DIR="/opt/circleci/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+          nvm install 10.15.2
+          nvm alias default 10.15.2
+
+          rm -rf ~./node-gyp
+    - run:
+        name: Install yarn and rsync
+        command: |
+          curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+          echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+          sudo apt-get update && sudo apt-get install yarn rsync
+    - run:
+        name: Build Client
+        command: |
+          export NVM_DIR="/opt/circleci/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+          nvm use 10.15.2
+
+          export REACT_APP_API_ROOT=https://api.animalcrossingart.com &&
+          yarn install && yarn build
+
+    - run:
+        name: Run Client linter
+        command: yarn lint
+    - run:
+        name: Deploy to Dev Server
+        command: |
+          if [ "${CIRCLE_BRANCH}" == "master" ]; then rsync -arhvz --exclude .git/ -e "ssh -o StrictHostKeyChecking=no" --progress \
+            ./ root@198.199.97.18:/var/www/aca/aca-client/; fi
+
+  #stage:
+  #prod:
+
+workflows:
+  version: 2
+  untagged-build:
+    jobs:
+    - feature_branch:
+        filters:
+          branches:
+            ignore: /master/
+    - dev:
+        filters:
+          branches:
+            only: /master/
+#  tagged-build:
+#    jobs:
+#    - prod:
+#        filters:
+#          tags:
+#            only: /v[0-9]+(\.[0-9]+)+/
+#          branches:
+#            ignore: /.*/
+#    - stage:
+#        filters:
+#          tags:
+#            only: /v[0-9]+(\.[0-9]+)+(-rc[0-9]+)/
+#          branches:
+#            ignore: /.*/
