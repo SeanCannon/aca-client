@@ -4,16 +4,16 @@ import {
   Header,
   Segment,
   Pagination
-} from 'semantic-ui-react'
+} from 'semantic-ui-react';
 
 const Gallery = () => {
   return (
     <Segment style={{ padding: '8em 0em' }} vertical>
       <Container text>
-        <Header as='h3' style={{ fontSize: '2em' }}>
+        <Header as="h3" style={{ fontSize: '2em' }}>
           Gallery
         </Header>
-        <Pagination 
+        <Pagination
           defaultActivePage={1}
           firstItem={null}
           lastItem={null}
@@ -24,6 +24,6 @@ const Gallery = () => {
       </Container>
     </Segment>
   );
-}
+};
 
 export default Gallery;
