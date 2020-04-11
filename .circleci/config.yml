@@ -71,10 +71,6 @@ jobs:
 
           export REACT_APP_API_ROOT=https://api.animalcrossingart.com &&
           yarn install && yarn build
-
-    - run:
-        name: Run Client linter
-        command: yarn lint
     - run:
         name: Deploy to Dev Server
         command: |
