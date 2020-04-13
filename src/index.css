@@ -1,14 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Jua');
 html,body {
   margin: 0;
-  font-family: 'Jua', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   background-color: #333;
   height: 100%;
+}
+
+* {
+  font-family: 'Jua', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.infinite-scroll-component {
+  overflow : hidden !important;
+}
+
+.ui.card {
+  background-color : rgba(247,218,177, 0.8) !important;
 }
