@@ -19,7 +19,9 @@ const Footer = () => (
               <List.Item as="a" href="https://github.com/divijb" target="_blank">Divij
                 Baboo
               </List.Item>
-              {/* <List.Item as='a' href="https://github.com/SeanCannon/" target="_blank">Jonatan Ju&aacute;rez</List.Item> */}
+              <List.Item as="a" href="https://github.com/JonaMX/" target="_blank">Jonatan
+              Ju&aacute;rez
+              </List.Item>
               <List.Item as="a" href="https://github.com/colebw/" target="_blank">Cole
                 Lewis
               </List.Item>
