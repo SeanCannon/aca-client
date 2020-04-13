@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Jua');
-body {
+html,body {
   margin: 0;
   font-family: 'Jua', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #333;
+  height: 100%;
 }
 
 code {
