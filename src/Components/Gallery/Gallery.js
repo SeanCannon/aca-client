@@ -3,8 +3,7 @@ import * as R from 'ramda';
 
 import React, {
   useEffect,
-  useState,
-  useRef
+  useState
 } from 'react';
 
 import {
@@ -36,8 +35,6 @@ const Gallery = () => {
 
   const fetchMoreItems = () => {
     const page = pageNum + 1;
-    console.log('page = ', page)
-    console.log(galleryItemIds.slice(page  * GALLERY_ITEMS_PER_FETCH - GALLERY_ITEMS_PER_FETCH, page * GALLERY_ITEMS_PER_FETCH))
     return Promise.all(galleryItemIds.slice(page  * GALLERY_ITEMS_PER_FETCH - GALLERY_ITEMS_PER_FETCH, page * GALLERY_ITEMS_PER_FETCH).map(id => {
       return ArtSvc.getItemById(Api)({ strategy, id });
     }))
@@ -61,7 +58,7 @@ const Gallery = () => {
     fetchMoreItems();
   }, [galleryItemIds]);
 
-  return (
+  return window.localStorage.getItem('dev') ? (
     <Segment id="gallery" style={{ padding : '8em 0em' }} vertical>
       <Container>
         <Header as="h3" style={{ fontSize : '2em' }}>
@@ -106,7 +103,7 @@ const Gallery = () => {
 
       </Container>
     </Segment>
-  );
+  ) : null;
 };
 
 export default Gallery;
