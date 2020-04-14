@@ -67,8 +67,8 @@ const ImageModal = ({ onClose, galleryItem }) => {
   const [croppedFile, setCroppedFile] = useState(null);
   const [crop, setCrop] = useState({
     unit: '%',
-    width: 50,
-    aspect: 1 / 1
+    height: 50,
+    width: 50
   });
 
   useEffect(() => {
