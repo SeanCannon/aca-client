@@ -21,7 +21,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "demo": "export REACT_APP_API_ROOT=http://api.animalcrossingart.test:1337 PORT=3009 && react-scripts start",
+    "demo": "export REACT_APP_API_ROOT=http://api.animalcrossingart.test:1137 PORT=3009 HOST=www.animalcrossingart.test && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
