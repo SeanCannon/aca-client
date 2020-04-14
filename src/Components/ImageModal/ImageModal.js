@@ -117,6 +117,7 @@ const ImageModal = ({ onClose, galleryItem }) => {
         window.URL.revokeObjectURL(setCroppedFile);
         setCroppedFile(window.URL.createObjectURL(blob));
       }, 'image/jpeg');
+      // eslint-disable-next-line no-console
     }).catch(error => console.log('Blob error: ', error));
   };
 

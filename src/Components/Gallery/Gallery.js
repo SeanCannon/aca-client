@@ -71,7 +71,6 @@ const Gallery = () => {
   };
 
   const handleOpenModal = (galleryItem) => {
-    console.log('galleryItem: ', galleryItem);
     setImageModal({
       open: true,
       galleryItem
