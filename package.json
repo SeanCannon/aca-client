@@ -11,12 +11,14 @@
     "ramda": "^0.27.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-image-crop": "^8.6.2",
     "react-infinite-scroll-component": "^5.0.4",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "react-scroll": "^1.7.16",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.2",
+    "styled-components": "^5.1.0",
     "uuid": "^7.0.3"
   },
   "scripts": {
