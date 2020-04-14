@@ -20,6 +20,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 
 import { shuffleMutate } from '../../utils';
 import { Api, ArtSvc } from '../../api';
+import ImageModal from '../ImageModal/ImageModal';
 
 const Gallery = () => {
   const [isLoading, setIsLoading]               = useState(true);
@@ -30,6 +31,10 @@ const Gallery = () => {
   const [galleryItems, setGalleryItems]         = useState([]);
   const [galleryItemCount, setGalleryItemCount] = useState(0);
   const [pageNum, setPageNum]                   = useState(0);
+  const [imageModal, setImageModal]                   = useState({
+    open: false,
+    galleryItem: null
+  });
 
   const GALLERY_ITEMS_PER_FETCH = 20;
 
@@ -58,6 +63,35 @@ const Gallery = () => {
     fetchMoreItems();
   }, [galleryItemIds]);
 
+  const handleCloseModal = () => {
+    setImageModal({
+      open: false,
+      galleryItem: null
+    })
+  };
+
+  const handleOpenModal = (galleryItem) => {
+    console.log('galleryItem: ', galleryItem);
+    setImageModal({
+      open: true,
+      galleryItem
+    })
+  };
+
+  const renderImageModal = () => {
+    const { open, galleryItem } = imageModal;
+    if (!open || !galleryItem) {
+      return null;
+    }
+
+    return (
+      <ImageModal
+        onClose={handleCloseModal}
+        galleryItem={galleryItem}
+      />
+      );
+  }
+
   return window.localStorage.getItem('dev') ? (
     <Segment id="gallery" style={{ padding : '8em 0em' }} vertical>
       <Container>
@@ -73,9 +107,15 @@ const Gallery = () => {
         >
           <Grid>
             {
-              galleryItems.map(({ id, title, primaryImageSmall }) => (
+              galleryItems.map(({ id, title, primaryImageSmall, primaryImage }) => (
                 <Grid.Column key={id} mobile={16} tablet={8} computer={4}>
-                  <Card>
+                  <Card
+                    onClick={() => handleOpenModal({
+                      id,
+                      title,
+                      imageUrl: primaryImage
+                    })}
+                  >
                     <Image
                       src={primaryImageSmall}
                       wrapped
@@ -102,6 +142,7 @@ const Gallery = () => {
         </InfiniteScroll>
 
       </Container>
+      { renderImageModal() }
     </Segment>
   ) : null;
 };
