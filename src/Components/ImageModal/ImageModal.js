@@ -80,7 +80,7 @@ const ImageModal = ({ onClose, galleryItem }) => {
         reader.addEventListener('load', () => setImage(reader.result));
         reader.readAsDataURL(blob);
       });
-  }, []);
+  }, [imageUrl]);
 
   const onLoad = useCallback(img => {
     setOriginalImage(img);
