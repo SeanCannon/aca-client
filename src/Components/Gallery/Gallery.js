@@ -31,7 +31,7 @@ const Gallery = () => {
   const [galleryItems, setGalleryItems]         = useState([]);
   const [galleryItemCount, setGalleryItemCount] = useState(0);
   const [pageNum, setPageNum]                   = useState(0);
-  const [imageModal, setImageModal]                   = useState({
+  const [imageModal, setImageModal]             = useState({
     open: false,
     galleryItem: null
   });
@@ -70,7 +70,7 @@ const Gallery = () => {
     })
   };
 
-  const handleOpenModal = (galleryItem) => {
+  const handleOpenModal = galleryItem => {
     setImageModal({
       open: true,
       galleryItem
@@ -89,7 +89,7 @@ const Gallery = () => {
         galleryItem={galleryItem}
       />
       );
-  }
+  };
 
   return window.localStorage.getItem('dev') ? (
     <Segment id="gallery" style={{ padding : '8em 0em' }} vertical>

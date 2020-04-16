@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
   Button,
@@ -133,7 +133,7 @@ const ImageModal = ({ onClose, galleryItem }) => {
     }).catch(error => console.log('Blob error: ', error));
   };
 
-  const onLoad = useCallback(async img => {
+  const onLoad = async img => {
     setOriginalImage(img);
     const newCrop = {
       ...crop,
@@ -147,7 +147,7 @@ const ImageModal = ({ onClose, galleryItem }) => {
 
     setCrop(newCrop);
     await createCropPreview(img, newCrop, 'newFile.jpg');
-  }, []);
+  };
 
   const makeClientCrop = async newCrop => {
     if (originalImage && newCrop.width && newCrop.height) {
