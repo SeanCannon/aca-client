@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
   Button,
@@ -10,10 +10,19 @@ import {
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 
+const MAX_WIDTH_HEIGHT = 100;
+
 const QrNestedModal = ({ onClose, loaded, croppedFile }) => {
   const [open, setOpen] = useState(false);
 
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => {
+    // TODO:
+    // send blob to API
+    // set loading button state
+    // when response blob arrives, setOpen
+    setOpen(true);
+  };
+
   const handleClose = () => {
     setOpen(false);
     onClose();
@@ -39,7 +48,7 @@ const QrNestedModal = ({ onClose, loaded, croppedFile }) => {
       <Modal.Content>
         <p>[QR Code here]</p>
         <div>
-          <img src={croppedFile} crossOrigin="anonymous" alt="asf" />
+          <img src={croppedFile} crossOrigin="anonymous" alt="" />
         </div>
       </Modal.Content>
       <Modal.Actions>
@@ -82,18 +91,21 @@ const ImageModal = ({ onClose, galleryItem }) => {
       });
   }, [imageUrl]);
 
-  const onLoad = useCallback(img => {
-    setOriginalImage(img);
-  }, []);
+  const getImageDimensionsBasedOnMax = (width, height, maxWidthHeight) => {
+    const ratio = Math.min(maxWidthHeight / width, maxWidthHeight / height);
+
+    return { width: width * ratio, height: height * ratio };
+  };
 
   const createCropPreview = async (img, newCrop, fileName) => {
     const canvas = document.createElement('canvas');
+    const smallDimensions = getImageDimensionsBasedOnMax(newCrop.width, newCrop.height, MAX_WIDTH_HEIGHT);
     const scaleX = img.naturalWidth / img.width;
     const scaleY = img.naturalHeight / img.height;
-    canvas.width = newCrop.width;
-    canvas.height = newCrop.height;
+    canvas.width = smallDimensions.width;
+    canvas.height = smallDimensions.height;
     const ctx = canvas.getContext('2d');
-
+    // debugger;
     ctx.drawImage(
       img,
       newCrop.x * scaleX,
@@ -102,8 +114,8 @@ const ImageModal = ({ onClose, galleryItem }) => {
       newCrop.height * scaleY,
       0,
       0,
-      newCrop.width,
-      newCrop.height
+      smallDimensions.width,
+      smallDimensions.height
     );
 
     return new Promise((resolve, reject) => {
@@ -119,6 +131,22 @@ const ImageModal = ({ onClose, galleryItem }) => {
       }, 'image/jpeg');
       // eslint-disable-next-line no-console
     }).catch(error => console.log('Blob error: ', error));
+  };
+
+  const onLoad = async img => {
+    setOriginalImage(img);
+    const newCrop = {
+      ...crop,
+      aspect: undefined,
+      x: 0,
+      y: 0,
+      unit: 'px',
+      width: img.width / 2,
+      height: img.height / 2
+    };
+
+    setCrop(newCrop);
+    await createCropPreview(img, newCrop, 'newFile.jpg');
   };
 
   const makeClientCrop = async newCrop => {
@@ -156,6 +184,7 @@ const ImageModal = ({ onClose, galleryItem }) => {
               crop={crop}
               onChange={newCrop => setCrop(newCrop)}
               onComplete={makeClientCrop}
+              keepSelection
             />
           </div>
         </Modal.Description>
