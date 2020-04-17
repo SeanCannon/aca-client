@@ -45,7 +45,7 @@ const Gallery = () => {
     );
 
     return ArtSvc.getItemsByIds(Api)({ strategy, itemIds })
-      .then(images => setGalleryItems([...galleryItems, ...images]))
+      .then(resGalleryItems => setGalleryItems([...galleryItems, ...resGalleryItems]))
       .then(() => setPageNum(page))
       .catch(console.error);
   };
