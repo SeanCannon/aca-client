@@ -23,8 +23,6 @@ import { Api, ArtSvc } from '../../api';
 import ImageModal from '../ImageModal/ImageModal';
 
 const Gallery = () => {
-  const [isLoading, setIsLoading]               = useState(true);
-  const [isLoadingMore, setIsLoadingMore]       = useState(true);
   const [searchParams, setSearchParams]         = useState({});
   const [strategy, setStrategy]                 = useState('met');
   const [galleryItemIds, setGalleryItemIds]     = useState([]);
@@ -40,18 +38,20 @@ const Gallery = () => {
 
   const fetchMoreItems = () => {
     const page = pageNum + 1;
-    return Promise.all(galleryItemIds.slice(page  * GALLERY_ITEMS_PER_FETCH - GALLERY_ITEMS_PER_FETCH, page * GALLERY_ITEMS_PER_FETCH).map(id => {
-      return ArtSvc.getItemById(Api)({ strategy, id });
-    }))
-      .then(images => setGalleryItems([ ...galleryItems, ...images]))
+
+    const itemIds = galleryItemIds.slice(
+      page * GALLERY_ITEMS_PER_FETCH - GALLERY_ITEMS_PER_FETCH,
+      page * GALLERY_ITEMS_PER_FETCH
+    );
+
+    return ArtSvc.getItemsByIds(Api)({ strategy, itemIds })
+      .then(resGalleryItems => setGalleryItems([...galleryItems, ...resGalleryItems]))
       .then(() => setPageNum(page))
       .catch(console.error);
   };
 
   useEffect(() => {
-    setIsLoading(true);
     ArtSvc.search(Api)({ strategy })
-      .then(R.tap(console.log))
       .then(({ total, itemIds }) => {
         setGalleryItemCount(total);
         setGalleryItemIds(shuffleMutate(R.uniq(itemIds)));
@@ -94,14 +94,18 @@ const Gallery = () => {
   return window.localStorage.getItem('dev') ? (
     <Segment id="gallery" style={{ padding : '8em 0em' }} vertical>
       <Container>
-        <Header as="h3" style={{ fontSize : '2em' }}>
-          Gallery
+        <Header as="h3" style={{
+          textAlign : 'center',
+          fontSize : '3em',
+          color : 'rgba(247,218,177, 0.8)'
+        }}>
+          { `${strategy} Gallery`.toUpperCase() }
         </Header>
         <InfiniteScroll
           dataLength={galleryItems.length}
           next={fetchMoreItems}
           hasMore={galleryItems.length < galleryItemCount}
-          loader={<Loader content='Loading' />}
+          loader={<Loader inverted active content='Loading' />}
           endMessage={<h5>End of this gallery</h5>}
         >
           <Grid>
