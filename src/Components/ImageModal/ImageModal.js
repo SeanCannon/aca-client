@@ -15,17 +15,19 @@ const MAX_WIDTH_HEIGHT = 100;
 
 const QrNestedModal = ({ onClose, loaded, croppedFile }) => {
   const [open, setOpen] = useState(false);
-  const [scaledImage, setScaledImage] = useState(null)
+  const [scaledImage, setScaledImage] = useState(null);
 
   const upload = file => {
     return ArtSvc.convert(Api)({ file })
-      .catch(console.error)
+    // eslint-disable-next-line no-console
+      .catch(console.error);
   };
 
   const handleOpen = () => {
     upload(croppedFile)
-      .then(({ data }) => new Blob([data], { type: 'image/png' }))
+      .then(({ data }) => new Blob([new Uint8Array(data).buffer], { type: 'image/png' }))
       .then(blob => {
+      // eslint-disable-next-line no-param-reassign
         blob.name = 'scaled.png';
         window.URL.revokeObjectURL(setScaledImage);
         setScaledImage(window.URL.createObjectURL(blob));
