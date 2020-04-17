@@ -58,8 +58,13 @@ const search = axiosInstance => async ({ strategy }) => {
   return data;
 };
 
-const getItemById = axiosInstance => async ({ strategy, id }) => {
-  const { data: { data } } = await axiosInstance.get(`/v1/art/${strategy}/item/${id}`);
+const getItemById = axiosInstance => async ({ strategy, itemId }) => {
+  const { data: { data } } = await axiosInstance.get(`/v1/art/${strategy}/item/${itemId}`);
+  return data;
+};
+
+const getItemsByIds = axiosInstance => async ({ strategy, itemIds }) => {
+  const { data: { data } } = await axiosInstance.post(`/v1/art/${strategy}/items`, { itemIds });
   return data;
 };
 
@@ -76,6 +81,7 @@ const convert = axiosInstance => async ({ file }) => {
 const ArtSvc = {
   search,
   getItemById,
+  getItemsByIds,
   convert
 };
 
