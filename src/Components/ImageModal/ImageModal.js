@@ -9,18 +9,28 @@ import {
 } from 'semantic-ui-react';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
+import { Api, ArtSvc } from '../../api';
 
 const MAX_WIDTH_HEIGHT = 100;
 
 const QrNestedModal = ({ onClose, loaded, croppedFile }) => {
   const [open, setOpen] = useState(false);
+  const [scaledImage, setScaledImage] = useState(null)
+
+  const upload = file => {
+    return ArtSvc.convert(Api)({ file })
+      .catch(console.error)
+  };
 
   const handleOpen = () => {
-    // TODO:
-    // send blob to API
-    // set loading button state
-    // when response blob arrives, setOpen
-    setOpen(true);
+    upload(croppedFile)
+      .then(({ data }) => new Blob([data], { type: 'image/png' }))
+      .then(blob => {
+        blob.name = 'scaled.png';
+        window.URL.revokeObjectURL(setScaledImage);
+        setScaledImage(window.URL.createObjectURL(blob));
+      })
+      .then(() => setOpen(true));
   };
 
   const handleClose = () => {
@@ -48,7 +58,7 @@ const QrNestedModal = ({ onClose, loaded, croppedFile }) => {
       <Modal.Content>
         <p>[QR Code here]</p>
         <div>
-          <img src={croppedFile} crossOrigin="anonymous" alt="" />
+          <img src={scaledImage} crossOrigin="anonymous" alt="" />
         </div>
       </Modal.Content>
       <Modal.Actions>
@@ -126,8 +136,7 @@ const ImageModal = ({ onClose, galleryItem }) => {
         }
         // eslint-disable-next-line no-param-reassign
         blob.name = fileName;
-        window.URL.revokeObjectURL(setCroppedFile);
-        setCroppedFile(window.URL.createObjectURL(blob));
+        setCroppedFile(blob);
       }, 'image/jpeg');
       // eslint-disable-next-line no-console
     }).catch(error => console.log('Blob error: ', error));
