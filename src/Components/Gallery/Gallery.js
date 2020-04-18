@@ -18,13 +18,16 @@ import {
 
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-import { shuffleMutate } from '../../utils';
-import { Api, ArtSvc } from '../../api';
-import ImageModal from '../ImageModal/ImageModal';
+import { Api, ArtSvc }   from '../../api';
+import ImageModal        from '../ImageModal/ImageModal';
+import ArtCategorySelect from '../ArtCategorySelect/ArtCategorySelect';
+
+const INITIAL_ART_STRATEGY    = 'met';
+const GALLERY_ITEMS_PER_FETCH = 20;
 
 const Gallery = () => {
   const [searchParams, setSearchParams]         = useState({});
-  const [strategy, setStrategy]                 = useState('met');
+  const [strategy, setStrategy]                 = useState(INITIAL_ART_STRATEGY);
   const [galleryItemIds, setGalleryItemIds]     = useState([]);
   const [galleryItems, setGalleryItems]         = useState([]);
   const [galleryItemCount, setGalleryItemCount] = useState(0);
@@ -34,7 +37,7 @@ const Gallery = () => {
     galleryItem: null
   });
 
-  const GALLERY_ITEMS_PER_FETCH = 20;
+  const updateSearchParams = newParams => setSearchParams({ ...searchParams, ...newParams });
 
   const fetchMoreItems = () => {
     const page = pageNum + 1;
@@ -51,11 +54,12 @@ const Gallery = () => {
   };
 
   useEffect(() => {
-    ArtSvc.search(Api)({ strategy })
+    setGalleryItems([]);
+    setPageNum(0);
+    ArtSvc.search(Api)({ strategy, searchParams })
       .then(({ total, itemIds }) => {
         setGalleryItemCount(total);
-        setGalleryItemIds(shuffleMutate(R.uniq(itemIds)));
-        setPageNum(0);
+        setGalleryItemIds(R.uniq(itemIds));
       });
   }, [searchParams, strategy]);
 
@@ -96,10 +100,11 @@ const Gallery = () => {
       <Container>
         <Header as="h3" style={{
           textAlign : 'center',
-          fontSize : '3em',
-          color : 'rgba(247,218,177, 0.8)'
+          fontSize  : '3em',
+          color     : 'rgba(247,218,177, 0.8)'
         }}>
           { `${strategy} Gallery`.toUpperCase() }
+          <p style={{ textAlign : 'center' }}><ArtCategorySelect strategy={strategy} onSelect={updateSearchParams}/></p>
         </Header>
         <InfiniteScroll
           dataLength={galleryItems.length}
