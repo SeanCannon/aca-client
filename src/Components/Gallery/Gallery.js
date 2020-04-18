@@ -40,7 +40,7 @@ const Gallery = () => {
 
   const updateSearchParams = newParams => setSearchParams({ ...searchParams, ...newParams });
 
-  const fetchMoreItems = (idList) => {
+  const fetchMoreItems = idList => {
     const page = pageNum + 1;
 
     const itemIds = idList.slice(
