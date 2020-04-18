@@ -40,10 +40,10 @@ const Gallery = () => {
 
   const updateSearchParams = newParams => setSearchParams({ ...searchParams, ...newParams });
 
-  const fetchMoreItems = () => {
+  const fetchMoreItems = (idList) => {
     const page = pageNum + 1;
 
-    const itemIds = galleryItemIds.slice(
+    const itemIds = idList.slice(
       page * GALLERY_ITEMS_PER_FETCH - GALLERY_ITEMS_PER_FETCH,
       page * GALLERY_ITEMS_PER_FETCH
     );
@@ -66,7 +66,7 @@ const Gallery = () => {
   }, [searchParams, strategy]);
 
   useEffect(() => {
-    fetchMoreItems();
+    fetchMoreItems(galleryItemIds);
   }, [galleryItemIds]);
 
   const handleCloseModal = () => {
