@@ -110,7 +110,7 @@ const Gallery = () => {
           dataLength={galleryItems.length}
           next={fetchMoreItems}
           hasMore={galleryItems.length < galleryItemCount}
-          loader={<Loader inverted active content='Loading' />}
+          loader={<div style={{ margin : 'auto', padding : '20px', textAlign : 'center' }}><Loader inline inverted active content='Loading' /></div>}
           endMessage={<h5>End of this gallery</h5>}
         >
           <Grid>
@@ -148,7 +148,6 @@ const Gallery = () => {
             }
           </Grid>
         </InfiniteScroll>
-
       </Container>
       { renderImageModal() }
     </Segment>

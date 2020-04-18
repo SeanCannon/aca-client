@@ -69,7 +69,7 @@ jobs:
 
           nvm use 10.15.2
 
-          export REACT_APP_API_ROOT=https://api.animalcrossingart.com &&
+          export REACT_APP_API_ROOT=https://api.animalcrossingart.com GA_ID=UA-2747324-16 &&
           yarn install && yarn build
     - run:
         name: Deploy to Dev Server
