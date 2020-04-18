@@ -28,8 +28,7 @@
   "scripts": {
     "start": "react-app-rewired start",
     "demo": "export REACT_APP_API_ROOT=http://api.animalcrossingart.test:1137 PORT=3009 HOST=www.animalcrossingart.test && react-app-rewired start",
-    "build": " cd zxing-js-library && npm run build:es5 && cd .. && react-app-rewired build",
-    "build:submodule": "cd zxing-js-library && npm run build:es5",
+    "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "lint": "eslint ./src",
