@@ -12,7 +12,6 @@ import 'react-image-crop/dist/ReactCrop.css';
 import QrNestedModal from './QRNestedModal';
 import { createCropPreview, DEFAULT_CROP } from './utils';
 
-
 const ImageModal = ({ onClose, galleryItem }) => {
   const {
     title,

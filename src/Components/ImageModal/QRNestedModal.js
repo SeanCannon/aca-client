@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { Api, ArtSvc } from '../../api';
+import { generateQR } from '../../Utils/QRGenerator';
+
+const Image = styled.img`
+  width: 150px;
+  height : 150px;
+  image-rendering: pixelated;
+`;
 
 const QrNestedModal = ({
   onClose,
@@ -11,6 +19,7 @@ const QrNestedModal = ({
 }) => {
   const [open, setOpen] = useState(false);
   const [scaledImage, setScaledImage] = useState(null);
+  const [QRImage, setQRImage] = useState(null);
 
   const upload = file => {
     return ArtSvc.convert(Api)({ file })
@@ -20,7 +29,11 @@ const QrNestedModal = ({
 
   const handleOpen = () => {
     upload(croppedFile)
-      .then(({ data }) => new Blob([new Uint8Array(data).buffer], { type: 'image/png' }))
+      .then(({ data }) => {
+        const arrayBuffer = new Uint8Array(data).buffer;
+        generateQR(arrayBuffer).then(setQRImage);
+        return new Blob([arrayBuffer], { type: 'image/png' });
+      })
       .then(blob => {
       // eslint-disable-next-line no-param-reassign
         blob.name = 'scaled.png';
@@ -45,13 +58,16 @@ const QrNestedModal = ({
     >
       <Modal.Header>QR Code</Modal.Header>
       <Modal.Content>
-        <p>[QR Code here]</p>
         <div>
           <img
+            src={QRImage}
+            alt=""
+          />
+        </div>
+        <div>
+          <Image
             src={scaledImage}
             alt=""
-            width="105"
-            height="105"
           />
         </div>
       </Modal.Content>
