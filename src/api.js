@@ -52,8 +52,8 @@ const getAxiosInstance = () => {
 
 const Api = getAxiosInstance();
 
-const search = axiosInstance => async ({ strategy }) => {
-  const { data: { data } } = await axiosInstance.get(`/v1/art/${strategy}/search`);
+const search = axiosInstance => async ({ strategy, searchParams }) => {
+  const { data: { data } } = await axiosInstance.get(`/v1/art/${strategy}/search`, { params : searchParams });
   return data;
 };
 
