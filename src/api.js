@@ -73,10 +73,10 @@ const convert = axiosInstance => async ({ file }) => {
   fData.append('source', file, file.fileName);
   const { data: { data } } = await axiosInstance.post('/v1/art/convert/', fData, {
     headers: {
-    'Content-Type': `multipart/form-data; boundary=${fData._boundary}`,
-  }});
+      'Content-Type': `multipart/form-data; boundary=${fData._boundary}`
+    } });
   return data;
-}
+};
 
 const ArtSvc = {
   search,
