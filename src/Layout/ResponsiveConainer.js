@@ -48,8 +48,20 @@ const DesktopContainer = ({ children }) => {
             size="large"
           >
             <Container>
-              <Menu.Item as="a" active>
-                {siteName}
+              <Menu.Item as="a" href="/">
+                Home
+              </Menu.Item>
+              <Menu.Item as="a" target="_blank" href="https://discord.gg/mBMsHvN">
+                Discord
+              </Menu.Item>
+              <Menu.Item as="a" target="_blank" href="https://www.facebook.com/AnimalCrossingArt-110478317288315">
+                Facebook
+              </Menu.Item>
+              <Menu.Item as="a" target="_blank" href="https://twitter.com/crossingart">
+                Twitter
+              </Menu.Item>
+              <Menu.Item as="a" target="_blank" href="https://www.instagram.com/animalcrossingartdotcom">
+                Instagram
               </Menu.Item>
             </Container>
           </Menu>
