@@ -27,12 +27,10 @@ const StyleHeader = Styled(Header)`
 
 const Gallery = () => {
   const [searchParams, setSearchParams] = useState({});
-  // eslint-disable-next-line no-unused-vars
-  const [strategy, setStrategy] = useState(INITIAL_ART_STRATEGY);
   const [galleryItemIds, setGalleryItemIds] = useState([]);
   const [galleryItems, setGalleryItems] = useState([]);
   const [galleryItemCount, setGalleryItemCount] = useState(0);
-  const [pageNum, setPageNum] = useState(0);
+  const [pageNum, setPageNum] = useState(-1);
   const [imageModal, setImageModal] = useState({
     open: false,
     galleryItem: null
@@ -40,34 +38,38 @@ const Gallery = () => {
 
   const updateSearchParams = newParams => setSearchParams({ ...searchParams, ...newParams });
 
-  const fetchMoreItems = idList => {
-    const page = pageNum + 1;
-
-    const itemIds = idList.slice(
-      page * GALLERY_ITEMS_PER_FETCH - GALLERY_ITEMS_PER_FETCH,
-      page * GALLERY_ITEMS_PER_FETCH
-    );
-
-    return ArtSvc.getItemsByIds(Api)({ strategy, itemIds })
-      .then(resGalleryItems => setGalleryItems([...galleryItems, ...resGalleryItems]))
-      .then(() => setPageNum(page))
-    // eslint-disable-next-line no-console
-      .catch(console.error);
-  };
+  const incrementPage = () => setPageNum(pageNum + 1);
 
   useEffect(() => {
     setGalleryItems([]);
-    setPageNum(0);
-    ArtSvc.search(Api)({ strategy, searchParams })
+    // setPageNum(0);
+    ArtSvc.search(Api)({ strategy: INITIAL_ART_STRATEGY, searchParams })
       .then(({ total, itemIds }) => {
         setGalleryItemCount(total);
         setGalleryItemIds(R.uniq(itemIds));
+        setPageNum(0);
       });
-  }, [searchParams, strategy]);
+  }, [searchParams]);
 
   useEffect(() => {
-    fetchMoreItems(galleryItemIds);
-  }, [galleryItemIds]);
+    const fetchMoreItems = () => {
+      const itemIds = galleryItemIds.slice(
+        pageNum * GALLERY_ITEMS_PER_FETCH - GALLERY_ITEMS_PER_FETCH,
+        pageNum * GALLERY_ITEMS_PER_FETCH
+      );
+
+      return ArtSvc.getItemsByIds(Api)({ strategy: INITIAL_ART_STRATEGY, itemIds })
+        .then(resGalleryItems => setGalleryItems(prevGalleryItems => [...prevGalleryItems, ...resGalleryItems]))
+      // eslint-disable-next-line no-console
+        .catch(console.error);
+    };
+
+    fetchMoreItems();
+  }, [pageNum, galleryItemIds]);
+
+  useEffect(() => {
+    setPageNum(0);
+  }, []);
 
   const handleCloseModal = () => {
     setImageModal({
@@ -102,15 +104,15 @@ const Gallery = () => {
       <Container>
         <StyleHeader as="h3">
           <div>
-            { `${strategy} Gallery`.toUpperCase() }
+            { `${INITIAL_ART_STRATEGY} Gallery`.toUpperCase() }
           </div>
           <div>
-            <ArtCategorySelect strategy={strategy} onSelect={updateSearchParams} />
+            <ArtCategorySelect strategy={INITIAL_ART_STRATEGY} onSelect={updateSearchParams} />
           </div>
         </StyleHeader>
         <InfiniteScroll
           dataLength={galleryItems.length}
-          next={fetchMoreItems}
+          next={incrementPage}
           hasMore={galleryItems.length < galleryItemCount}
           loader={<div style={{ margin : 'auto', padding : '20px', textAlign : 'center' }}><Loader inline inverted active content="Loading" /></div>}
           endMessage={<h5>End of this gallery</h5>}
