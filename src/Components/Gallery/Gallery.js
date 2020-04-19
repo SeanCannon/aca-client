@@ -42,12 +42,11 @@ const Gallery = () => {
 
   useEffect(() => {
     setGalleryItems([]);
-    // setPageNum(0);
     ArtSvc.search(Api)({ strategy: INITIAL_ART_STRATEGY, searchParams })
       .then(({ total, itemIds }) => {
         setGalleryItemCount(total);
         setGalleryItemIds(R.uniq(itemIds));
-        setPageNum(0);
+        setPageNum(1);
       });
   }, [searchParams]);
 
@@ -57,9 +56,10 @@ const Gallery = () => {
         pageNum * GALLERY_ITEMS_PER_FETCH - GALLERY_ITEMS_PER_FETCH,
         pageNum * GALLERY_ITEMS_PER_FETCH
       );
-
       return ArtSvc.getItemsByIds(Api)({ strategy: INITIAL_ART_STRATEGY, itemIds })
-        .then(resGalleryItems => setGalleryItems(prevGalleryItems => [...prevGalleryItems, ...resGalleryItems]))
+        .then(resGalleryItems => setGalleryItems(prevGalleryItems => {
+          return [...prevGalleryItems, ...resGalleryItems];
+        }))
       // eslint-disable-next-line no-console
         .catch(console.error);
     };
@@ -69,6 +69,7 @@ const Gallery = () => {
 
   useEffect(() => {
     setPageNum(0);
+    // setSearchParams({});
   }, []);
 
   const handleCloseModal = () => {
