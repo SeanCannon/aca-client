@@ -134,16 +134,7 @@ const Gallery = () => {
                     <Card.Content>
                       <Card.Header>{title}</Card.Header>
                       <Card.Meta>Courtesy of MET</Card.Meta>
-                      {/* <Card.Description> */}
-                      {/* Daniel is a comedian living in Nashville. */}
-                      {/* </Card.Description> */}
                     </Card.Content>
-                    {/* <Card.Content extra> */}
-                    {/* <a> */}
-                    {/* <Icon name='user' /> */}
-                    {/* 10 Friends */}
-                    {/* </a> */}
-                    {/* </Card.Content> */}
                   </Card>
                 </Grid.Column>
               ))
