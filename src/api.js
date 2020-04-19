@@ -68,9 +68,11 @@ const getItemsByIds = axiosInstance => async ({ strategy, itemIds }) => {
   return data;
 };
 
-const convert = axiosInstance => async ({ file }) => {
+const convert = axiosInstance => async ({ file, galleryItemId, galleryStrategyKey }) => {
   const fData = new FormData();
   fData.append('source', file, file.fileName);
+  fData.append('galleryItemId', galleryItemId);
+  fData.append('galleryStrategyKey', galleryStrategyKey);
   const { data: { data } } = await axiosInstance.post('/v1/art/convert/', fData, {
     headers: {
       'Content-Type': `multipart/form-data; boundary=${fData._boundary}`

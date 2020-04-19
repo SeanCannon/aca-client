@@ -91,8 +91,9 @@ const Gallery = () => {
       <ImageModal
         onClose={handleCloseModal}
         galleryItem={galleryItem}
+        galleryStrategyKey={INITIAL_ART_STRATEGY}
       />
-      );
+    );
   };
 
   return window.localStorage.getItem('dev') ? (

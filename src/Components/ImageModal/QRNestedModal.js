@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Button, Modal } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Api, ArtSvc } from '../../api';
-import { generateQR } from '../../Utils/QRGenerator';
+// import { generateQR } from '../../Utils/QRGenerator';
+import generateQR from '../../Utils/acnl/libs/ACNLQRGenerator';
+import DrawingTool from '../../Utils/acnl/libs/DrawingTool';
+
 
 const Image = styled.img`
   width: 150px;
@@ -15,21 +18,27 @@ const QrNestedModal = ({
   onClose,
   loaded,
   croppedFile,
-  trigger
+  trigger,
+  galleryItemId,
+  galleryStrategyKey
 }) => {
   const [open, setOpen] = useState(false);
   const [scaledImage, setScaledImage] = useState(null);
   const [QRImage, setQRImage] = useState(null);
 
   const upload = file => {
-    return ArtSvc.convert(Api)({ file })
+    return ArtSvc.convert(Api)({ file, galleryItemId, galleryStrategyKey })
     // eslint-disable-next-line no-console
       .catch(console.error);
   };
 
   const handleOpen = () => {
+    const foo = new DrawingTool(croppedFile);
+    console.log({ foo : foo.toString()})
     upload(croppedFile)
       .then(({ data }) => {
+        console.log({ data })
+        debugger;
         const arrayBuffer = new Uint8Array(data).buffer;
         generateQR(arrayBuffer).then(setQRImage);
         return new Blob([arrayBuffer], { type: 'image/png' });

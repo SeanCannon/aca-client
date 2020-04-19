@@ -10,12 +10,15 @@ import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 
 import QrNestedModal from './QRNestedModal';
+import ImageLoader from './ImageLoader';
+
 import { createCropPreview, DEFAULT_CROP } from './utils';
 
-const ImageModal = ({ onClose, galleryItem }) => {
+const ImageModal = ({ onClose, galleryItem, galleryStrategyKey }) => {
   const {
     title,
-    imageUrl
+    imageUrl,
+    id : galleryItemId
   } = galleryItem;
 
   const [image, setImage] = useState();
@@ -51,13 +54,13 @@ const ImageModal = ({ onClose, galleryItem }) => {
 
     setCrop(newCrop);
 
-    const imageBlob = await createCropPreview(img, newCrop, 'newFile.jpg');
+    const imageBlob = await createCropPreview(img, newCrop, 'newFile.png');
     setCroppedFile(imageBlob);
   };
 
   const makeClientCrop = async newCrop => {
     if (originalImage && newCrop.width && newCrop.height) {
-      const imageBlob = await createCropPreview(originalImage, newCrop, 'newFile.jpg');
+      const imageBlob = await createCropPreview(originalImage, newCrop, 'newFile.png');
       setCroppedFile(imageBlob);
     }
   };
@@ -95,14 +98,16 @@ const ImageModal = ({ onClose, galleryItem }) => {
           }
           <div>
 
-            <ReactCrop
-              src={image}
-              onImageLoaded={onLoad}
-              crop={crop}
-              onChange={newCrop => setCrop(newCrop)}
-              onComplete={makeClientCrop}
-              keepSelection
-            />
+            { console.log('fuck')}
+            <ImageLoader/>
+            {/*<ReactCrop*/}
+              {/*src={image}*/}
+              {/*onImageLoaded={onLoad}*/}
+              {/*crop={crop}*/}
+              {/*onChange={newCrop => setCrop(newCrop)}*/}
+              {/*onComplete={makeClientCrop}*/}
+              {/*keepSelection*/}
+            {/*/>*/}
           </div>
         </Modal.Description>
       </Modal.Content>
@@ -112,6 +117,8 @@ const ImageModal = ({ onClose, galleryItem }) => {
           loaded={!!originalImage}
           croppedFile={croppedFile}
           trigger={renderTrigger}
+          galleryItemId={galleryItemId}
+          galleryStrategyKey={galleryStrategyKey}
         />
       </Modal.Actions>
     </Modal>

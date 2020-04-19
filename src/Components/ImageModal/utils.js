@@ -1,5 +1,6 @@
 const MAX_WIDTH_HEIGHT = 100;
 const DEFAULT_CROP = {
+  aspect : 1,
   unit: '%',
   height: 50,
   width: 50
