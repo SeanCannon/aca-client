@@ -7,6 +7,7 @@ import {
 import Layout from './Layout/Layout';
 import 'semantic-ui-css/semantic.min.css';
 
+import './index.css';
 import Home from './Containers/Home';
 
 function App() {

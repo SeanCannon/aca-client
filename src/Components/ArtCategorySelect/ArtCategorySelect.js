@@ -1,8 +1,18 @@
 import * as R from 'ramda';
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import Styled from 'styled-components';
 import { Dropdown } from 'semantic-ui-react';
+
+const StyledDropdown = Styled(Dropdown)`
+  border: solid 1px rgba(247, 218, 177, 0.8);
+  padding: 10px 25px;
+  border-radius: 25px;
+  
+  div.menu > div.item > span.text {
+    font-size: 24px;
+  }
+`;
 
 const categories = {
   met : [
@@ -107,8 +117,7 @@ const categories = {
 
 const ArtCategorySelect = ({ strategy, onSelect }) => (
   <span>
-    Now displaying {' '}
-    <Dropdown
+    <StyledDropdown
       inline
       scrolling
       onChange={(_, { value }) => onSelect(value)}
