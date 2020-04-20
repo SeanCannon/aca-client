@@ -1,82 +1,103 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable no-unused-vars */
+
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
   Modal,
   Header,
   Loader,
-  Dimmer, Button
+  Grid,
+  Dimmer
 } from 'semantic-ui-react';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 
-import QrNestedModal from './QRNestedModal';
-import { createCropPreview, DEFAULT_CROP } from './utils';
+import DrawingTool from '../../Utils/acnl/libs/DrawingTool';
+import generateQR from '../../Utils/acnl/libs/ACNLQRGenerator';
+import ImageLoader from './ImageLoader';
+import UploadImage from './UploadImage';
 
-const ImageModal = ({ onClose, galleryItem }) => {
+import {
+  createCropPreview,
+  DEFAULT_CROP
+} from './utils';
+
+const ImageModal = ({ onClose, galleryItem = {}, galleryStrategyKey }) => {
   const {
-    title,
-    imageUrl
+    title = 'Uploaded',
+    imageUrl,
+    id : galleryItemId
   } = galleryItem;
 
   const [image, setImage] = useState();
   const [originalImage, setOriginalImage] = useState(null);
-  const [croppedFile, setCroppedFile] = useState(null);
   const [crop, setCrop] = useState({
     ...DEFAULT_CROP
   });
 
-  useEffect(() => {
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-    fetch(proxyUrl + imageUrl)
-      .then(res => res.blob()) // Gets the response and returns it as a blob
-      .then(blob => {
-        const reader = new FileReader();
-        reader.addEventListener('load', () => setImage(reader.result));
-        reader.readAsDataURL(blob);
-      });
-  }, [imageUrl]);
+  const [QRImage, setQRImage] = useState(null);
+  const [canvas, setCanvas] = useState();
+  const [coordinates, setCoordinates] = useState();
 
+  const drawingToolInstance = new DrawingTool();
+
+  useEffect(() => {
+    if (!image) {
+      const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+      fetch(proxyUrl + imageUrl)
+        .then(res => res.blob()) // Gets the response and returns it as a blob
+        .then(blob => {
+          const reader = new FileReader();
+          reader.addEventListener('load', () => setImage(reader.result));
+          reader.readAsDataURL(blob);
+        });
+    }
+  }, [image, imageUrl]);
+
+
+  const _onClose = () => {
+    return onClose();
+  };
 
   const onLoad = async img => {
     setOriginalImage(img);
     const newCrop = {
       ...crop,
-      aspect: undefined,
-      x: 0,
-      y: 0,
-      unit: 'px',
-      width: img.width / 2,
-      height: img.height / 2
+      aspect : undefined,
+      x      : 0,
+      y      : 0,
+      unit   : 'px',
+      width  : img.width / 2,
+      height : img.height / 2
     };
 
     setCrop(newCrop);
 
-    const imageBlob = await createCropPreview(img, newCrop, 'newFile.jpg');
-    setCroppedFile(imageBlob);
+    const cropPreview = await createCropPreview(img, newCrop, 'newFile.png');
+    setCanvas(cropPreview.canvas);
+    setCoordinates(cropPreview.coordinates);
   };
 
   const makeClientCrop = async newCrop => {
     if (originalImage && newCrop.width && newCrop.height) {
-      const imageBlob = await createCropPreview(originalImage, newCrop, 'newFile.jpg');
-      setCroppedFile(imageBlob);
+      const cropPreview = await createCropPreview(originalImage, newCrop, 'newFile.png');
+      setCanvas(cropPreview.canvas);
+      setCoordinates(cropPreview.coordinates);
     }
   };
 
-  const renderTrigger = loaded => (
-    <Button
-      primary
-      icon
-      disabled={!loaded}
-    >
-      Get QR Code
-    </Button>
-  );
+  const setCroppedRender = data => {
+    generateQR(data, title).then(setQRImage);
+  };
+
+  const handleFileUploaded = uploadedImage => setImage(uploadedImage);
 
   return (
     <Modal
       centered={false}
       open
-      onClose={onClose}
+      onClose={_onClose}
       size="small"
       closeIcon
     >
@@ -84,46 +105,75 @@ const ImageModal = ({ onClose, galleryItem }) => {
       <Modal.Content>
         <Modal.Description>
           <Header>{title}</Header>
-          {
-            !image
-              ? (
-                <Dimmer active>
-                  <Loader />
-                </Dimmer>
-              )
-              : null
+          { !imageUrl ? (
+            <UploadImage onSetImage={handleFileUploaded} />
+          ) : !image
+            ? (
+              <Dimmer active>
+                <Loader />
+              </Dimmer>
+            )
+            : null
           }
+
           <div>
 
-            <ReactCrop
-              src={image}
-              onImageLoaded={onLoad}
-              crop={crop}
-              onChange={newCrop => setCrop(newCrop)}
-              onComplete={makeClientCrop}
-              keepSelection
-            />
+            { canvas && coordinates && drawingToolInstance ? (
+                <ImageLoader
+                  canvas={canvas}
+                  coordinates={coordinates}
+                  drawingToolInstance={drawingToolInstance}
+                  setCroppedRender={setCroppedRender}
+                  title={title}
+                />
+            ) : null
+            }
+
+            <Grid>
+              <Grid.Column mobile={16} tablet={8} computer={8}>
+                <ReactCrop
+                  src={image}
+                  onImageLoaded={onLoad}
+                  crop={crop}
+                  onChange={newCrop => setCrop(newCrop)}
+                  onComplete={makeClientCrop}
+                  keepSelection
+                />
+              </Grid.Column>
+              <Grid.Column mobile={16} tablet={8} computer={8}>
+                { QRImage ? (
+                  <>
+                    <img
+                      src={QRImage}
+                      style={{
+                        display         : 'block',
+                        margin          : '0 auto 20px auto',
+                        backgroundColor : 'rgba(0, 0, 0, 0.2)',
+                        borderRadius    : '10px',
+                        width           : '90%'
+                      }}
+                      alt=""
+                    />
+                    <div className="addthis_tipjar_inline" />
+                  </>
+                ) : <div />
+                }
+              </Grid.Column>
+            </Grid>
           </div>
         </Modal.Description>
       </Modal.Content>
-      <Modal.Actions>
-        <QrNestedModal
-          onClose={onClose}
-          loaded={!!originalImage}
-          croppedFile={croppedFile}
-          trigger={renderTrigger}
-        />
-      </Modal.Actions>
     </Modal>
   );
 };
 
 ImageModal.propTypes = {
-  onClose: PropTypes.func,
-  galleryItem: {
-    id: PropTypes.number,
-    title: PropTypes.string,
-    imageUrl: PropTypes.string
+  onClose            : PropTypes.func,
+  galleryStrategyKey : PropTypes.string,
+  galleryItem        : {
+    id       : PropTypes.number,
+    title    : PropTypes.string,
+    imageUrl : PropTypes.string
   }
 };
 

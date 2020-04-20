@@ -10,7 +10,7 @@ import {
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Hero from '../Components/Hero/Hero';
-import UploadModal from '../Components/ImageModal/UploadModal';
+import UploadModal from '../Components/ImageModal/ImageModal';
 
 const siteName = 'Animal Crossing Art';
 

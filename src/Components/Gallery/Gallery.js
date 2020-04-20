@@ -5,7 +5,6 @@ import {
   Header,
   Segment,
   Grid,
-  Image,
   Card,
   Loader
 } from 'semantic-ui-react';
@@ -25,6 +24,25 @@ const StyleHeader = Styled(Header)`
   color: rgba(247,218,177, 0.8);
 `;
 
+const CardImage = Styled.div(({ src }) => ({
+  height             : '250px',
+  backgroundImage    : `url('${src}')`,
+  backgroundSize     : 'cover',
+  backgroundPosition : 'center center ',
+  overflow           : 'hidden',
+  boxShadow          : 'inset 0 0 20px #000000'
+}));
+
+const CardHeader = Styled(Card.Header)`
+  height     : 80px;
+  text-align : center;
+`;
+
+const CardMeta = Styled(Card.Meta)`
+  font-size  : 0.9em !important;
+  text-align : center;
+`;
+
 const Gallery = () => {
   const [searchParams, setSearchParams] = useState({});
   const [galleryItemIds, setGalleryItemIds] = useState([]);
@@ -32,8 +50,8 @@ const Gallery = () => {
   const [galleryItemCount, setGalleryItemCount] = useState(0);
   const [pageNum, setPageNum] = useState(-1);
   const [imageModal, setImageModal] = useState({
-    open: false,
-    galleryItem: null
+    open        : false,
+    galleryItem : null
   });
 
   const updateSearchParams = newParams => setSearchParams({ ...searchParams, ...newParams });
@@ -41,7 +59,6 @@ const Gallery = () => {
   const incrementPage = () => setPageNum(pageNum + 1);
 
   useEffect(() => {
-    setGalleryItems([]);
     ArtSvc.search(Api)({ strategy: INITIAL_ART_STRATEGY, searchParams })
       .then(({ total, itemIds }) => {
         setGalleryItemCount(total);
@@ -58,9 +75,9 @@ const Gallery = () => {
       );
       return ArtSvc.getItemsByIds(Api)({ strategy: INITIAL_ART_STRATEGY, itemIds })
         .then(resGalleryItems => setGalleryItems(prevGalleryItems => {
-          return [...prevGalleryItems, ...resGalleryItems];
+          return pageNum === 1 ? [...resGalleryItems] : [...prevGalleryItems, ...resGalleryItems];
         }))
-      // eslint-disable-next-line no-console
+        // eslint-disable-next-line no-console
         .catch(console.error);
     };
 
@@ -129,14 +146,12 @@ const Gallery = () => {
                       imageUrl: primaryImage
                     })}
                   >
-                    <Image
+                    <CardImage
                       src={primaryImageSmall}
-                      wrapped
-                      size="large"
                     />
                     <Card.Content>
-                      <Card.Header>{title}</Card.Header>
-                      <Card.Meta>Courtesy of MET</Card.Meta>
+                      <CardHeader>{title.replace(/(.{65})..+/, '$1…')}</CardHeader>
+                      <CardMeta>Courtesy of MET</CardMeta>
                     </Card.Content>
                   </Card>
                 </Grid.Column>
