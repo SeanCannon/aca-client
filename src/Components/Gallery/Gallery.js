@@ -137,13 +137,13 @@ const Gallery = () => {
         >
           <Grid>
             {
-              galleryItems.map(({ id, title, primaryImageSmall, primaryImage }) => (
+              galleryItems.map(({ id, title, primaryImageSmall }) => (
                 <Grid.Column key={id} mobile={16} tablet={8} computer={4}>
                   <Card
                     onClick={() => handleOpenModal({
                       id,
                       title,
-                      imageUrl: primaryImage
+                      imageUrl: primaryImageSmall
                     })}
                   >
                     <CardImage
