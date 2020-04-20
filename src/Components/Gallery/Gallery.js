@@ -143,7 +143,7 @@ const Gallery = () => {
                     onClick={() => handleOpenModal({
                       id,
                       title,
-                      imageUrl: primaryImage
+                      imageUrl: primaryImageSmall
                     })}
                   >
                     <CardImage
