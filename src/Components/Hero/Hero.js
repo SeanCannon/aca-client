@@ -17,7 +17,7 @@ const GalleryLink = () => (
     duration={500}
     style={{ color : '#304241' }}
   >
-    { window.localStorage.getItem('dev') ? 'Browse The Gallery' : 'Coming Soon!'}
+    Browse The Gallery
   </Link>
 );
 

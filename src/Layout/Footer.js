@@ -1,10 +1,26 @@
 import React from 'react';
 import { Container, Grid, Header, List, Segment } from 'semantic-ui-react';
 
+import Styled from 'styled-components';
+
 const siteName = 'Animal Crossing Art';
 
+const StyledSegment = Styled(Segment)`
+  padding          : 1em 0;
+  position         : fixed !important;
+  z-index          : 9999;
+  bottom           : 0;
+  width            : 100%;
+  font-size        : 0.7em !important;
+  background-color : rgba(0, 0, 0, 0.7) !important;
+  
+  h4 {
+    font-size : 0.8em !important;
+  }
+`;
+
 const Footer = () => (
-  <Segment inverted vertical style={{ padding: '5em 0em' }}>
+  <StyledSegment inverted vertical>
     <Container>
       <Grid divided inverted stackable>
         <Grid.Row>
@@ -27,7 +43,7 @@ const Footer = () => (
               </List.Item>
             </List>
           </Grid.Column>
-          <Grid.Column width={10}>
+          <Grid.Column width={8}>
             <Header as="h4" inverted>
               {siteName}
             </Header>
@@ -42,10 +58,18 @@ const Footer = () => (
               </List.Item>
             </List>
           </Grid.Column>
+          <Grid.Column width={5}>
+            <Header as="h4" inverted>
+              Disclaimer
+            </Header>
+            <List.Item as="p">
+              This project is not affiliated in any way with or endorsed by Nintendo Co., Ltd. or Nintendo of America Inc. Animal Crossing™ and Nintendo Switch™ are trademarks of Nintendo.
+            </List.Item>
+          </Grid.Column>
         </Grid.Row>
       </Grid>
     </Container>
-  </Segment>
+  </StyledSegment>
 );
 
 export default Footer;

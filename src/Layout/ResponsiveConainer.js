@@ -11,6 +11,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Hero from '../Components/Hero/Hero';
 import UploadModal from '../Components/ImageModal/ImageModal';
+import TutorialModal from '../Components/TutorialModal/TutorialModal';
 
 const siteName = 'Animal Crossing Art';
 
@@ -23,22 +24,12 @@ const getWidth = () => {
 const DesktopContainer = ({ children }) => {
   const [fixed, setFixed] = useState(false);
   const [openUpload, setOpenUpload] = useState(false);
+  const [openTutorial, setOpenTutorial] = useState(false);
 
   const hideFixedMenu = () => setFixed(false);
   const showFixedMenu = () => setFixed(true);
   const handleToggleUploadModal = () => setOpenUpload(!openUpload);
-
-  const renderImageModal = () => {
-    if (!openUpload) {
-      return null;
-    }
-
-    return (
-      <UploadModal
-        onClose={handleToggleUploadModal}
-      />
-    );
-  };
+  const handleToggleTutorialModal = () => setOpenTutorial(!openTutorial);
 
   return (
     <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
@@ -87,6 +78,14 @@ const DesktopContainer = ({ children }) => {
                   <Icon name="upload" /> Upload Image
                 </Menu.Item>
               </Menu.Menu>
+              <Menu.Menu position="right">
+                <Menu.Item
+                  name="tutorial"
+                  onClick={handleToggleTutorialModal}
+                >
+                  <Icon name="help" /> Tutorial
+                </Menu.Item>
+              </Menu.Menu>
             </Container>
           </Menu>
           <Hero />
@@ -94,7 +93,18 @@ const DesktopContainer = ({ children }) => {
       </Visibility>
 
       {children}
-      {renderImageModal()}
+
+      { openUpload ? (
+        <UploadModal
+          onClose={handleToggleUploadModal}
+        />
+      ) : null }
+
+      { openTutorial ? (
+        <TutorialModal
+          onClose={handleToggleTutorialModal}
+        />
+      ) : null }
     </Responsive>
   );
 };

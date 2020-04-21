@@ -117,7 +117,7 @@ const Gallery = () => {
     );
   };
 
-  return window.localStorage.getItem('dev') ? (
+  return (
     <Segment id="gallery" style={{ padding : '8em 0em' }} vertical>
       <Container>
         <StyleHeader as="h3">
@@ -162,7 +162,7 @@ const Gallery = () => {
       </Container>
       { renderImageModal() }
     </Segment>
-  ) : null;
+  );
 };
 
 export default Gallery;
