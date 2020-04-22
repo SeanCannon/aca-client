@@ -11,6 +11,8 @@ import {
   Dimmer
 } from 'semantic-ui-react';
 import ReactCrop from 'react-image-crop';
+import Styled from 'styled-components';
+
 import 'react-image-crop/dist/ReactCrop.css';
 
 import DrawingTool from '../../Utils/acnl/libs/DrawingTool';
@@ -24,6 +26,17 @@ import {
 } from './utils';
 
 import { Api, ArtSvc } from '../../api';
+
+const HelpText = Styled.div`
+  text-align : center;
+  font-size  : 0.9em;
+
+  .prompt {
+    font-weight   : bold;
+    display       : block;
+    margin-bottom : 5px;
+  }
+`;
 
 const ImageModal = ({ onClose, galleryItem = {}, galleryStrategyKey }) => {
   const {
@@ -160,6 +173,13 @@ const ImageModal = ({ onClose, galleryItem = {}, galleryStrategyKey }) => {
                       }}
                       alt=""
                     />
+                    <HelpText>
+                      <span className="prompt">Forget the next step?</span>
+                      <span>
+                        No worries! Just <a href="https://www.youtube.com/embed/3j0BR_Y-kkI?autoplay=1&origin=https://www.animalcrossingart.com" target="_blank" rel="noopener noreferrer">Watch the tutorial</a>&nbsp;
+                        or <a href="https://discord.gg/mBMsHvN" target="_blank" rel="noopener noreferrer">ask for help</a> :)
+                      </span>
+                    </HelpText>
                     <div className="addthis_tipjar_inline" />
                   </>
                 ) : <div />
