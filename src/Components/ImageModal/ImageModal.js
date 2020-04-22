@@ -71,12 +71,16 @@ const ImageModal = ({ onClose, galleryItem = {}, galleryStrategyKey }) => {
   }, [image, imageUrl]);
 
   const _onClose = () => {
-    ArtSvc.saveRender(Api)({
-      galleryStrategyKey,
-      galleryItemId,
-      image : QRImage
-    })
-      .then(onClose);
+    if (imageUrl) {
+      ArtSvc.saveRender(Api)({
+        galleryStrategyKey,
+        galleryItemId,
+        image : QRImage
+      })
+        .then(onClose);
+    } else {
+      onClose();
+    }
   };
 
   const onLoad = async img => {
