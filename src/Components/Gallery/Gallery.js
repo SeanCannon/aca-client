@@ -66,7 +66,7 @@ const Gallery = () => {
         setGalleryItemIds(R.uniq(itemIds));
         setPageNum(1);
       });
-  }, [searchParams]);
+  }, [strategy, searchParams]);
 
   useEffect(() => {
     const fetchMoreItems = () => {
@@ -83,7 +83,7 @@ const Gallery = () => {
     };
 
     fetchMoreItems();
-  }, [pageNum, galleryItemIds]);
+  }, [strategy, pageNum, galleryItemIds]);
 
   useEffect(() => {
     setPageNum(0);
