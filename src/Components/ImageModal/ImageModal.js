@@ -23,6 +23,8 @@ import {
   DEFAULT_CROP
 } from './utils';
 
+import { Api, ArtSvc } from '../../api';
+
 const ImageModal = ({ onClose, galleryItem = {}, galleryStrategyKey }) => {
   const {
     title = 'Uploaded',
@@ -55,9 +57,13 @@ const ImageModal = ({ onClose, galleryItem = {}, galleryStrategyKey }) => {
     }
   }, [image, imageUrl]);
 
-
   const _onClose = () => {
-    return onClose();
+    ArtSvc.saveRender(Api)({
+      galleryStrategyKey,
+      galleryItemId,
+      image : QRImage
+    })
+      .then(onClose);
   };
 
   const onLoad = async img => {

@@ -44,6 +44,7 @@ const CardMeta = Styled(Card.Meta)`
 `;
 
 const Gallery = () => {
+  const [strategy] = useState(INITIAL_ART_STRATEGY);
   const [searchParams, setSearchParams] = useState({});
   const [galleryItemIds, setGalleryItemIds] = useState([]);
   const [galleryItems, setGalleryItems] = useState([]);
@@ -59,7 +60,7 @@ const Gallery = () => {
   const incrementPage = () => setPageNum(pageNum + 1);
 
   useEffect(() => {
-    ArtSvc.search(Api)({ strategy: INITIAL_ART_STRATEGY, searchParams })
+    ArtSvc.search(Api)({ strategy, searchParams })
       .then(({ total, itemIds }) => {
         setGalleryItemCount(total);
         setGalleryItemIds(R.uniq(itemIds));
@@ -73,7 +74,7 @@ const Gallery = () => {
         pageNum * GALLERY_ITEMS_PER_FETCH - GALLERY_ITEMS_PER_FETCH,
         pageNum * GALLERY_ITEMS_PER_FETCH
       );
-      return ArtSvc.getItemsByIds(Api)({ strategy: INITIAL_ART_STRATEGY, itemIds })
+      return ArtSvc.getItemsByIds(Api)({ strategy, itemIds })
         .then(resGalleryItems => setGalleryItems(prevGalleryItems => {
           return pageNum === 1 ? [...resGalleryItems] : [...prevGalleryItems, ...resGalleryItems];
         }))
@@ -113,6 +114,7 @@ const Gallery = () => {
       <ImageModal
         onClose={handleCloseModal}
         galleryItem={galleryItem}
+        galleryStrategyKey={strategy}
       />
     );
   };

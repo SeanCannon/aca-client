@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
-import FormData from 'form-data';
 
 const activeRequests = {};
 
@@ -58,31 +57,20 @@ const search = axiosInstance => async ({ strategy, searchParams }) => {
   return data;
 };
 
-const getItemById = axiosInstance => async ({ strategy, itemId }) => {
-  const { data: { data } } = await axiosInstance.get(`/v1/art/${strategy}/item/${itemId}`);
-  return data;
-};
-
 const getItemsByIds = axiosInstance => async ({ strategy, itemIds }) => {
   const { data: { data } } = await axiosInstance.post(`/v1/art/${strategy}/items`, { itemIds });
   return data;
 };
 
-const convert = axiosInstance => async ({ file }) => {
-  const fData = new FormData();
-  fData.append('source', file, file.fileName);
-  const { data: { data } } = await axiosInstance.post('/v1/art/convert/', fData, {
-    headers: {
-      'Content-Type': `multipart/form-data; boundary=${fData._boundary}`
-    } });
+const saveRender = axiosInstance => async payload => {
+  const { data: { data } } = await axiosInstance.post('/v1/render', payload);
   return data;
 };
 
 const ArtSvc = {
   search,
-  getItemById,
   getItemsByIds,
-  convert
+  saveRender
 };
 
 export {
