@@ -21,7 +21,7 @@ const TutorialModal = ({ onClose }) => (
           type="text/html"
           width="640"
           height="360"
-          src="https://www.youtube.com/embed/3j0BR_Y-kkI?autoplay=1&origin=https://www.animalcrossingart.com"
+          src="https://www.youtube.com/embed/0lassKm9IQo?autoplay=1&origin=https://www.animalcrossingart.com"
           frameBorder="0"
         />
       </Modal.Description>

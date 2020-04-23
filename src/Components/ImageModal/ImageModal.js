@@ -180,7 +180,7 @@ const ImageModal = ({ onClose, galleryItem = {}, galleryStrategyKey }) => {
                     <HelpText>
                       <span className="prompt">Forget the next step?</span>
                       <span>
-                        No worries! Just <a href="https://www.youtube.com/embed/3j0BR_Y-kkI?autoplay=1&origin=https://www.animalcrossingart.com" target="_blank" rel="noopener noreferrer">Watch the tutorial</a>&nbsp;
+                        No worries! Just <a href="https://www.youtube.com/embed/0lassKm9IQo?autoplay=1&origin=https://www.animalcrossingart.com" target="_blank" rel="noopener noreferrer">Watch the tutorial</a>&nbsp;
                         or <a href="https://discord.gg/mBMsHvN" target="_blank" rel="noopener noreferrer">ask for help</a> :)
                       </span>
                     </HelpText>
