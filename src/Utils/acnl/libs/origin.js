@@ -77,7 +77,6 @@ const modLogIn = async (username, password) => {
     });
     if (response.data.error) {
       throw new Error(response.data.error);
-      return '';
     }
     return response.data.token;
   } catch (error) {
